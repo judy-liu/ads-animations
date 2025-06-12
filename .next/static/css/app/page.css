@@ -1,0 +1,1604 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/spacing/spacing-foundation-v1.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.spacing-foundation-v1_svgContainer__p4q_2 {
+    cursor: default;
+}
+
+/* Blue bars - grow from left side (0 width to full width) */
+.spacing-foundation-v1_blueBar__oALTe {
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: spacing-foundation-v1_growFromLeft__GefIp 0.8s ease-out 0.2s forwards;
+}
+
+.spacing-foundation-v1_blueBar__oALTe:nth-child(2) {
+    animation-delay: 0.2s; /* bottom right */
+}
+
+.spacing-foundation-v1_blueBar__oALTe:nth-child(3) {
+    animation-delay: 0.4s; /* bottom left */
+}
+
+.spacing-foundation-v1_blueBar__oALTe:nth-child(4) {
+    animation-delay: 0.6s; /* top left */
+}
+
+.spacing-foundation-v1_blueBar__oALTe:nth-child(5) {
+    animation-delay: 0.8s; /* top right */
+}
+
+/* Orange circle - grow from center */
+.spacing-foundation-v1_orangeCircle__r1LCP {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: spacing-foundation-v1_growFromCenter___rwZF 0.6s ease-out 1.2s forwards;
+}
+
+/* Black overlaps - fade in when circle touches blue bars */
+.spacing-foundation-v1_blackOverlap__h81oc {
+    opacity: 0;
+    animation: spacing-foundation-v1_fadeIn__qoGdH 0.4s ease-in-out 1.8s forwards;
+}
+
+/* Black text cursor - flash 2 times then stay at 100% opacity */
+.spacing-foundation-v1_textCursor__FfRgQ {
+    opacity: 0;
+    animation: spacing-foundation-v1_flashTwice__A1pWH 1.5s ease-in-out 2.4s forwards;
+}
+
+/* Keyframe animations */
+@keyframes spacing-foundation-v1_growFromLeft__GefIp {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes spacing-foundation-v1_growFromCenter___rwZF {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spacing-foundation-v1_fadeIn__qoGdH {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spacing-foundation-v1_flashTwice__A1pWH {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/spacing/spacing-foundation-v2.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.spacing-foundation-v2_svgContainer__NSr9C {
+    cursor: default;
+}
+
+/* Full horizontal blue bars - grow from width 0 to 100% */
+.spacing-foundation-v2_blueBarTop__aOmmU {
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: spacing-foundation-v2_growFromLeft__uX0Ik 0.8s ease-out 0.2s forwards;
+}
+
+.spacing-foundation-v2_blueBarBottom__B2wqm {
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: spacing-foundation-v2_growFromLeft__uX0Ik 0.8s ease-out 0.4s forwards;
+}
+
+/* Orange circle - grow from center */
+.spacing-foundation-v2_orangeCircle__aBRUP {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: spacing-foundation-v2_growFromCenter__6TzD6 1s ease-out 1s forwards;
+}
+
+/* Black overlaps - fade in when circle edges touch blue bars */
+.spacing-foundation-v2_blackOverlap__zfWhz {
+    opacity: 0;
+    animation: spacing-foundation-v2_fadeIn__UbX__ 0.3s ease-in-out 1.6s forwards;
+}
+
+/* Black text cursor - flash 2 times then stay at 100% opacity */
+.spacing-foundation-v2_textCursor__IdB49 {
+    opacity: 0;
+    animation: spacing-foundation-v2_flashTwice__Qc8Hx 1.5s ease-in-out 2.2s forwards;
+}
+
+/* Keyframe animations */
+@keyframes spacing-foundation-v2_growFromLeft__uX0Ik {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes spacing-foundation-v2_growFromCenter__6TzD6 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spacing-foundation-v2_fadeIn__UbX__ {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spacing-foundation-v2_flashTwice__Qc8Hx {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/spacing/spacing-foundation-v3.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.spacing-foundation-v3_svgContainer__a6Nxs {
+    cursor: default;
+}
+
+/* Full horizontal blue bars - grow from width 0 to 100% */
+.spacing-foundation-v3_blueBarTop__cO9z1 {
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: spacing-foundation-v3_growFromLeft__lRk5X 0.8s ease-out 0.2s forwards;
+}
+
+.spacing-foundation-v3_blueBarBottom__M8duH {
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: spacing-foundation-v3_growFromLeft__lRk5X 0.8s ease-out 0.4s forwards;
+}
+
+/* Orange circle - grow from center */
+.spacing-foundation-v3_orangeCircle__RmjaK {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: spacing-foundation-v3_growFromCenter__JamHJ 1s ease-out 1s forwards;
+}
+
+/* Black overlaps - grow in height when circle edges touch blue bars */
+.spacing-foundation-v3_blackOverlap__neYTL {
+    opacity: 1;
+}
+
+/* Black overlap top grows from bottom */
+.spacing-foundation-v3_blackOverlapTop__4L1zc {
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: spacing-foundation-v3_growFromBottom__q1uug 0.4s ease-out 1.8s forwards;
+}
+
+/* Black overlap bottom grows from top */
+.spacing-foundation-v3_blackOverlapBottom__iYhSA {
+    -webkit-clip-path: inset(0 0 100% 0);
+            clip-path: inset(0 0 100% 0);
+    animation: spacing-foundation-v3_growFromTop__YUe_1 0.4s ease-out 1.8s forwards;
+}
+
+/* Black text cursor - flash 2 times then stay at 100% opacity */
+.spacing-foundation-v3_textCursor__fgX_u {
+    opacity: 0;
+    animation: spacing-foundation-v3_flashTwice__unziT 2s ease-out 2.2s forwards;
+}
+
+/* Keyframe animations */
+@keyframes spacing-foundation-v3_growFromLeft__lRk5X {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes spacing-foundation-v3_growFromCenter__JamHJ {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spacing-foundation-v3_fadeIn__yE2Kg {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spacing-foundation-v3_growFromBottom__q1uug {
+    0% {
+        -webkit-clip-path: inset(100% 0 0 0);
+                clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0% 0 0 0);
+                clip-path: inset(0% 0 0 0);
+    }
+}
+
+@keyframes spacing-foundation-v3_growFromTop__YUe_1 {
+    0% {
+        -webkit-clip-path: inset(0 0 100% 0);
+                clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0% 0);
+                clip-path: inset(0 0 0% 0);
+    }
+}
+
+@keyframes spacing-foundation-v3_flashTwice__unziT {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/spacing/spacing-foundation-v4.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.spacing-foundation-v4_svgContainer__HUbfP {
+    cursor: default;
+}
+
+/* Full horizontal blue bars - grow from width 0 to 100% from fixed left edge */
+.spacing-foundation-v4_blueBarTop__Yhy_y {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: spacing-foundation-v4_growFromLeftFixed__gutGF 0.8s ease-out 0.2s forwards;
+}
+
+.spacing-foundation-v4_blueBarBottom__XHhtJ {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: spacing-foundation-v4_growFromLeftFixed__gutGF 0.8s ease-out 0.4s forwards;
+}
+
+/* Orange circle - grow from center - FASTER */
+.spacing-foundation-v4_orangeCircle__r5KzA {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: spacing-foundation-v4_growFromCenter__W_0Da 0.8s ease-out 1s forwards;
+}
+
+/* Black overlaps - grow in height when circle edges touch blue bars - ADJUSTED FOR FASTER CIRCLE */
+.spacing-foundation-v4_blackOverlap__Dpaf6 {
+    opacity: 1;
+}
+
+/* Black overlap top grows from bottom */
+.spacing-foundation-v4_blackOverlapTop__jTwhu {
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: spacing-foundation-v4_growFromBottom__rCbRz 0.4s ease-out 1.6s forwards;
+}
+
+/* Black overlap bottom grows from top */
+.spacing-foundation-v4_blackOverlapBottom__BeCZ6 {
+    -webkit-clip-path: inset(0 0 100% 0);
+            clip-path: inset(0 0 100% 0);
+    animation: spacing-foundation-v4_growFromTop__ZugCN 0.4s ease-out 1.6s forwards;
+}
+
+/* Black text cursor - flash indefinitely */
+.spacing-foundation-v4_textCursor__B_UGL {
+    opacity: 0;
+    animation: spacing-foundation-v4_flashInfinitely__7Imaa 1.5s ease-in 1.8s infinite;
+}
+
+/* Keyframe animations */
+@keyframes spacing-foundation-v4_growFromLeftFixed__gutGF {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+@keyframes spacing-foundation-v4_growFromCenter__W_0Da {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spacing-foundation-v4_fadeIn__5q6x7 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spacing-foundation-v4_growFromBottom__rCbRz {
+    0% {
+        -webkit-clip-path: inset(100% 0 0 0);
+                clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0% 0 0 0);
+                clip-path: inset(0% 0 0 0);
+    }
+}
+
+@keyframes spacing-foundation-v4_growFromTop__ZugCN {
+    0% {
+        -webkit-clip-path: inset(0 0 100% 0);
+                clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0% 0);
+                clip-path: inset(0 0 0% 0);
+    }
+}
+
+@keyframes spacing-foundation-v4_flashInfinitely__7Imaa {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/typography/typography-foundation-v1.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+.typography-foundation-v1_svgContainer__3aB85 {
+    cursor: default;
+}
+
+/* Typography Animation Sequence */
+
+/* 1. Blue downstroke - grows from height 0 to 100% from top edge */
+.typography-foundation-v1_blueDownstroke__XSVyi {
+    opacity: 1;
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: typography-foundation-v1_growFromTop__UnvQq 1s ease-out 0s forwards;
+}
+
+/* 2. Purple downstroke - grows from height 0 to 100% from top edge */
+.typography-foundation-v1_purpleDownstroke__s22Z_ {
+    opacity: 1;
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: typography-foundation-v1_growFromTop__UnvQq 1s ease-out 0.5s forwards;
+}
+
+/* 3. Green horizontal stroke - grows from width 0 to 100% from left edge */
+.typography-foundation-v1_greenHorizontalStroke__DWP0n {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v1_growFromLeft__pnJkm 1s ease-out 1s forwards;
+}
+
+/* 4. Overlaps fade in when appropriate */
+
+/* Blue and purple overlap - fades in when purple downstroke starts growing */
+.typography-foundation-v1_blueAndPurpleOverlap__HnxqU {
+    opacity: 0;
+    animation: typography-foundation-v1_fadeIn__0gkP8 0.5s ease-out 0.5s forwards;
+}
+
+/* Blue and green overlap - fades in when green horizontal stroke starts growing */
+.typography-foundation-v1_blueAndGreenOverlap__xAEvr {
+    opacity: 0;
+    animation: typography-foundation-v1_fadeIn__0gkP8 0.5s ease-out 1s forwards;
+}
+
+/* Green and purple overlap - fades in when green horizontal stroke starts growing */
+.typography-foundation-v1_greenAndPurpleOverlap__yCIcI {
+    opacity: 0;
+    animation: typography-foundation-v1_fadeIn__0gkP8 0.5s ease-out 1s forwards;
+}
+
+/* 5. Black doodles - animate like pencil strokes being drawn consecutively */
+
+/* Black doodle 1 - grows from width 0 to 100% from left side */
+.typography-foundation-v1_blackDoodle1__jRvli {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v1_growFromLeft__pnJkm 0.8s ease-out 2.5s forwards;
+}
+
+/* Black doodle 2 - grows from width 0 to 100% from left side, slight overlap */
+.typography-foundation-v1_blackDoodle2__9mJzx {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v1_growFromLeft__pnJkm 0.8s ease-out 3.1s forwards;
+}
+
+/* Black doodle 3 - grows from width 0 to 100% from left side, slight overlap */
+.typography-foundation-v1_blackDoodle3__74pKq {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v1_growFromLeft__pnJkm 0.8s ease-out 3.7s forwards;
+}
+
+/* Black doodle 4 - grows from width 0 to 100% from left side, slight overlap */
+.typography-foundation-v1_blackDoodle4__yOB4Z {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v1_growFromLeft__pnJkm 0.8s ease-out 4.3s forwards;
+}
+
+/* Black doodle 5 - grows from width 0 to 100% from left side, slight overlap */
+.typography-foundation-v1_blackDoodle5__CAeQN {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v1_growFromLeft__pnJkm 0.8s ease-out 4.9s forwards;
+}
+
+/* Keyframe animations */
+
+/* Grow from top - for downstrokes */
+@keyframes typography-foundation-v1_growFromTop__UnvQq {
+    0% {
+        -webkit-clip-path: inset(100% 0 0 0);
+                clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0% 0 0 0);
+                clip-path: inset(0% 0 0 0);
+    }
+}
+
+/* Grow from left - for horizontal strokes and doodles */
+@keyframes typography-foundation-v1_growFromLeft__pnJkm {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Fade in - for overlaps */
+@keyframes typography-foundation-v1_fadeIn__0gkP8 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/typography/typography-foundation-v2.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+.typography-foundation-v2_svgContainer__Xm4hA {
+    cursor: default;
+}
+
+/* Typography Animation Sequence - V2 with complete shapes */
+
+/* 1. Blue downstroke - complete parallelogram grows from height 0 to 100% from top edge */
+.typography-foundation-v2_blueDownstroke__Za3YH {
+    opacity: 1;
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: typography-foundation-v2_growFromTop__AkylK 1s ease-out 0s forwards;
+}
+
+/* 2. Purple downstroke - complete parallelogram grows from height 0 to 100% from top edge */
+.typography-foundation-v2_purpleDownstroke__jh1f0 {
+    opacity: 1;
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: typography-foundation-v2_growFromTop__AkylK 1s ease-out 0.5s forwards;
+}
+
+/* 3. Green horizontal stroke - complete rectangle grows from width 0 to 100% from left edge */
+.typography-foundation-v2_greenHorizontalStroke__uDptF {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v2_growFromLeft__tZu5d 0.7s ease-out 1.1s forwards;
+}
+
+/* 4. Overlaps animate in when strokes actually overlap */
+
+/* Blue and purple overlap - animates in when purple reaches the intersection with blue (mid-way through purple animation) */
+.typography-foundation-v2_blueAndPurpleOverlap__dngFi {
+    opacity: 0;
+    animation: typography-foundation-v2_fadeIn____TDl 0.3s ease-out 1.2s forwards;
+}
+
+/* Blue and green overlap - animates in when green starts growing from behind blue */
+.typography-foundation-v2_blueAndGreenOverlap__FTGRt {
+    opacity: 0;
+    animation: typography-foundation-v2_fadeIn____TDl 0.3s ease-in 1s forwards;
+}
+
+/* Green and purple overlap - animates in when green finishes and touches the edge of purple */
+.typography-foundation-v2_greenAndPurpleOverlap__ql9FE {
+    opacity: 0;
+    animation: typography-foundation-v2_fadeIn____TDl 0.3s ease-out 1.5s forwards;
+}
+
+/* 5. Black doodles - animate like pencil strokes being drawn consecutively */
+
+/* Black doodle 1 - grows from width 0 to 100% from left side */
+.typography-foundation-v2_blackDoodle1__Q0c5q {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v2_growFromLeft__tZu5d 0.8s ease-out 1.6s forwards;
+}
+
+/* Black doodle 2 - grows from width 0 to 100% from left side, slight overlap */
+.typography-foundation-v2_blackDoodle2__4gSM0 {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v2_growFromLeft__tZu5d 0.8s ease-out 2.2s forwards;
+}
+
+/* Black doodle 3 - grows from width 0 to 100% from left side, faster timing */
+.typography-foundation-v2_blackDoodle3__hANAw {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v2_growFromLeft__tZu5d 0.6s ease-out 2.8s forwards;
+}
+
+/* Black doodle 4 - grows from width 0 to 100% from left side, faster timing */
+.typography-foundation-v2_blackDoodle4__6HFsT {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v2_growFromLeft__tZu5d 0.6s ease-out 3s forwards;
+}
+
+/* Black doodle 5 - grows from width 0 to 100% from left side, faster timing */
+.typography-foundation-v2_blackDoodle5__ueJ29 {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v2_growFromLeft__tZu5d 0.6s ease-out 3.4s forwards;
+}
+
+/* Keyframe animations */
+
+/* Grow from top - for downstrokes (parallelograms) */
+@keyframes typography-foundation-v2_growFromTop__AkylK {
+    0% {
+        -webkit-clip-path: inset(100% 0 0 0);
+                clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0% 0 0 0);
+                clip-path: inset(0% 0 0 0);
+    }
+}
+
+/* Grow from left - for horizontal strokes and doodles */
+@keyframes typography-foundation-v2_growFromLeft__tZu5d {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Fade in - for overlaps */
+@keyframes typography-foundation-v2_fadeIn____TDl {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/typography/typography-foundation-v3.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+.typography-foundation-v3_svgContainer__d9RXe {
+    cursor: default;
+}
+
+/* Typography Animation Sequence - V3 with complete shapes - SPEEDY VERSION */
+
+/* 1. Blue downstroke - complete parallelogram grows from height 0 to 100% from top edge */
+.typography-foundation-v3_blueDownstroke__llgKb {
+    opacity: 1;
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: typography-foundation-v3_growFromTop__7GMKp 0.75s ease-out 0s forwards;
+}
+
+/* 2. Purple downstroke - complete parallelogram grows from height 0 to 100% from top edge */
+.typography-foundation-v3_purpleDownstroke__cd2hw {
+    opacity: 1;
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+    animation: typography-foundation-v3_growFromTop__7GMKp 0.75s ease-out 0.375s forwards;
+}
+
+/* 3. Green horizontal stroke - complete rectangle grows from width 0 to 100% from left edge */
+.typography-foundation-v3_greenHorizontalStroke__kH80W {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v3_growFromLeft__onuEG 0.525s ease-out 0.825s forwards;
+}
+
+/* 4. Overlaps animate in when strokes actually overlap */
+
+/* Blue and purple overlap - animates in when purple reaches the intersection with blue (mid-way through purple animation) */
+.typography-foundation-v3_blueAndPurpleOverlap__xzoPo {
+    opacity: 0;
+    animation: typography-foundation-v3_fadeIn__9vTjB 0.225s ease-out 0.9s forwards;
+}
+
+/* Blue and green overlap - animates in when green starts growing from behind blue */
+.typography-foundation-v3_blueAndGreenOverlap__CA8mI {
+    opacity: 0;
+    animation: typography-foundation-v3_fadeIn__9vTjB 0.225s ease-in 0.75s forwards;
+}
+
+/* Green and purple overlap - animates in when green finishes and touches the edge of purple */
+.typography-foundation-v3_greenAndPurpleOverlap__f7slY {
+    opacity: 0;
+    animation: typography-foundation-v3_fadeIn__9vTjB 0.225s ease-out 1.125s forwards;
+}
+
+/* 5. Black doodles - animate like pencil strokes being drawn consecutively */
+
+/* Black doodle 1 - grows from width 0 to 100% from left side */
+.typography-foundation-v3_blackDoodle1__kEjvf {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v3_growFromLeft__onuEG 0.6s ease-in-out 1.2s forwards;
+}
+
+/* Black doodle 2 - grows from width 0 to 100% from left side */
+.typography-foundation-v3_blackDoodle2__7TBVP {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v3_growFromLeft__onuEG 0.7s ease-in-out 1.4s forwards;
+}
+
+/* Black doodle 3 - grows from width 0 to 100% from left side, repeats infinitely */
+.typography-foundation-v3_blackDoodle3__MBibK {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v3_growFromLeftRepeat__wCDRf 3.7s ease-in-out 1.9s infinite;
+}
+
+/* Black doodle 4 - grows from width 0 to 100% from left side, repeats infinitely */
+.typography-foundation-v3_blackDoodle4__6y2Vc {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v3_growFromLeftRepeat__wCDRf 3.7s ease-in-out 2.1s infinite;
+}
+
+/* Black doodle 5 - grows from width 0 to 100% from left side, repeats infinitely */
+.typography-foundation-v3_blackDoodle5__B1EmD {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: typography-foundation-v3_growFromLeftRepeat__wCDRf 3.7s ease-in-out 2.3s infinite;
+}
+
+/* Keyframe animations */
+
+/* Grow from top - for downstrokes (parallelograms) */
+@keyframes typography-foundation-v3_growFromTop__7GMKp {
+    0% {
+        -webkit-clip-path: inset(100% 0 0 0);
+                clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0% 0 0 0);
+                clip-path: inset(0% 0 0 0);
+    }
+}
+
+/* Grow from left with repeat - for repeating doodles */
+@keyframes typography-foundation-v3_growFromLeftRepeat__wCDRf {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    13% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Grow from left - for horizontal strokes and doodles */
+@keyframes typography-foundation-v3_growFromLeft__onuEG {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Fade in - for overlaps */
+@keyframes typography-foundation-v3_fadeIn__9vTjB {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/icons/icons-foundation-v1.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+.icons-foundation-v1_svgContainer__ZWx9M {
+    cursor: default;
+}
+
+/* Icons Animation Sequence */
+
+/* 1. Top horizontal bar - grows from width 0 to 100% from left edge */
+.icons-foundation-v1_topHorizontalBar__XcvEG {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: icons-foundation-v1_growFromLeft__dUAGH 0.8s ease-out 0s forwards;
+}
+
+/* 2. Bottom horizontal bar - grows from width 0 to 100% from left edge */
+.icons-foundation-v1_bottomHorizontalBar__BSLvu {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: icons-foundation-v1_growFromLeft__dUAGH 0.8s ease-out 0.3s forwards;
+}
+
+/* 3. Purple gear - scales up from center */
+.icons-foundation-v1_purpleGear__t19_2 {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: icons-foundation-v1_scaleUp__bOTkU 0.6s ease-out 1s forwards;
+}
+
+/* 4. Green play button - scales up from center */
+.icons-foundation-v1_greenPlayButton__x4zea {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: icons-foundation-v1_scaleUp__bOTkU 0.6s ease-out 1.3s forwards;
+}
+
+/* 5. Black overlay - fades in when green play button appears */
+.icons-foundation-v1_blackOverlay__D1FkB {
+    opacity: 0;
+    animation: icons-foundation-v1_fadeIn__Wd4X7 0.4s ease-out 1.5s forwards;
+}
+
+/* Keyframe animations */
+
+/* Grow from left - for horizontal bars */
+@keyframes icons-foundation-v1_growFromLeft__dUAGH {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Scale up - for gear and play button */
+@keyframes icons-foundation-v1_scaleUp__bOTkU {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fade in - for overlay */
+@keyframes icons-foundation-v1_fadeIn__Wd4X7 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/icons/icons-foundation-v2.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+.icons-foundation-v2_svgContainer__KGa8m {
+    cursor: default;
+}
+
+/* Icons Animation Sequence V2 - Colored icons first, then black bars */
+
+/* 1. Purple gear - fades and spins clockwise into existence */
+.icons-foundation-v2_purpleGear__LKVmB {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: icons-foundation-v2_fadeSpinClockwise__1tNe5 1s ease-out 0s forwards;
+}
+
+/* 2. Green play button - spins anti-clockwise into existence */
+.icons-foundation-v2_greenPlayButton__Ww3g0 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: icons-foundation-v2_fadeSpinAntiClockwise__dm29v 1s ease-out 0.3s forwards;
+}
+
+/* 3. Black overlay - fades in when green button starts */
+.icons-foundation-v2_blackOverlay__bWt6A {
+    opacity: 0;
+    animation: icons-foundation-v2_fadeIn__gzyQ0 0.6s ease-out 0.3s forwards;
+}
+
+/* 4. Top horizontal bar - grows from width 0 to 100% from left edge */
+.icons-foundation-v2_topHorizontalBar__yQNmQ {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: icons-foundation-v2_growFromLeft__57k59 0.8s ease-in-out 1.2s forwards;
+}
+
+/* 5. Bottom horizontal bar - grows from width 0 to 100% from right edge */
+.icons-foundation-v2_bottomHorizontalBar__7_Cc4 {
+    opacity: 1;
+    -webkit-clip-path: inset(0 0 0 100%);
+            clip-path: inset(0 0 0 100%);
+    animation: icons-foundation-v2_growFromRight__t4f4T 0.8s ease-in-out 1.6s forwards;
+}
+
+/* Keyframe animations */
+
+/* Fade and spin clockwise - for purple gear */
+@keyframes icons-foundation-v2_fadeSpinClockwise__1tNe5 {
+    0% {
+        opacity: 0;
+        transform: rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Fade and spin anti-clockwise - for green play button */
+@keyframes icons-foundation-v2_fadeSpinAntiClockwise__dm29v {
+    0% {
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Grow from left - for horizontal bars */
+@keyframes icons-foundation-v2_growFromLeft__57k59 {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Grow from right - for bottom horizontal bar */
+@keyframes icons-foundation-v2_growFromRight__t4f4T {
+    0% {
+        -webkit-clip-path: inset(0 0 0 100%);
+                clip-path: inset(0 0 0 100%);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 0%);
+                clip-path: inset(0 0 0 0%);
+    }
+}
+
+/* Fade in - for overlay */
+@keyframes icons-foundation-v2_fadeIn__gzyQ0 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/icons/icons-foundation-v3.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+.icons-foundation-v3_svgContainer__ziVcp {
+    cursor: default;
+}
+
+/* Icons Animation Sequence V3 - Colored icons first, then black bars */
+
+/* 1. Purple gear - fades and spins clockwise into existence */
+.icons-foundation-v3_purpleGear__ILxlP {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: icons-foundation-v3_fadeSpinClockwise__nsF8e 1s ease-out 0s forwards;
+}
+
+/* 2. Green play button - spins anti-clockwise into existence */
+.icons-foundation-v3_greenPlayButton__04evq {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: icons-foundation-v3_fadeSpinAntiClockwise__hRHmm 1s ease-out 0.3s forwards;
+}
+
+/* 3. Black overlay - fades in when green button starts */
+.icons-foundation-v3_blackOverlay__IyQpw {
+    opacity: 0;
+    animation: icons-foundation-v3_fadeIn__1vAO1 0.6s ease-out 0.3s forwards;
+}
+
+/* 4. Top horizontal bar - initial draw then periodic redraws */
+.icons-foundation-v3_topHorizontalBar__v6L6q {
+    opacity: 1;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    animation:
+        icons-foundation-v3_initialDrawTop__FmbAq 2s ease-out 1.2s forwards,
+        icons-foundation-v3_redrawTop__Ba6TW 6s ease-out 4.2s infinite;
+}
+
+/* 4b. Top middle stroke - thinner stroke with stroke-dasharray animation */
+.icons-foundation-v3_topMiddleStroke__ax9Of {
+    opacity: 1;
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation:
+        icons-foundation-v3_initialDrawTopMiddle__P2YfD 0.4s ease-out 1.2s forwards,
+        icons-foundation-v3_redrawTopMiddle__uSHqj 6s ease-out 4.2s infinite;
+}
+
+/* 5. Bottom horizontal bar - initial draw then periodic redraws */
+.icons-foundation-v3_bottomHorizontalBar__cXFK0 {
+    opacity: 1;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    animation:
+        icons-foundation-v3_initialDrawBottom__q6JHX 2s ease-out 1.6s forwards,
+        icons-foundation-v3_redrawBottom__JE_Sh 6s ease-out 7.6s infinite;
+}
+
+/* 5b. Bottom middle stroke - thinner stroke with stroke-dasharray animation */
+.icons-foundation-v3_bottomMiddleStroke__fjkp_ {
+    opacity: 1;
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation:
+        icons-foundation-v3_initialDrawBottomMiddle__NVMzo 0.4s ease-out 1.6s forwards,
+        icons-foundation-v3_redrawBottomMiddle__tjF9X 6s ease-out 7.6s infinite;
+}
+
+/* Keyframe animations */
+
+/* Fade and spin clockwise - for purple gear */
+@keyframes icons-foundation-v3_fadeSpinClockwise__nsF8e {
+    0% {
+        opacity: 0;
+        transform: rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Fade and spin anti-clockwise - for green play button */
+@keyframes icons-foundation-v3_fadeSpinAntiClockwise__hRHmm {
+    0% {
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Initial draw animations */
+@keyframes icons-foundation-v3_initialDrawTop__FmbAq {
+    0% {
+        stroke-dashoffset: 130;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes icons-foundation-v3_initialDrawBottom__q6JHX {
+    0% {
+        stroke-dashoffset: 130;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Initial draw animations for middle strokes */
+@keyframes icons-foundation-v3_initialDrawTopMiddle__P2YfD {
+    0% {
+        stroke-dashoffset: 6;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes icons-foundation-v3_initialDrawBottomMiddle__NVMzo {
+    0% {
+        stroke-dashoffset: 6;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Refade animations for middle strokes */
+@keyframes icons-foundation-v3_refadeTopMiddle__ven3o {
+    0% {
+        opacity: 1;
+    }
+    2% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes icons-foundation-v3_refadeBottomMiddle__kWSvp {
+    0% {
+        opacity: 1;
+    }
+    2% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Redraw animation for top bar - briefly redraws every 6s */
+@keyframes icons-foundation-v3_redrawTop__Ba6TW {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 130;
+    }
+    25% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Redraw animation for bottom bar - briefly redraws every 6s */
+@keyframes icons-foundation-v3_redrawBottom__JE_Sh {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 130;
+    }
+    25% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Redraw animations for middle strokes */
+@keyframes icons-foundation-v3_redrawTopMiddle__uSHqj {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 6;
+    }
+    13% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes icons-foundation-v3_redrawBottomMiddle__tjF9X {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 6;
+    }
+    13% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Fade in - for overlay */
+@keyframes icons-foundation-v3_fadeIn__1vAO1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/colour/colour-foundation-v3.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+.colour-foundation-v3_svgContainer__zyCd8 {
+    cursor: default;
+}
+
+.colour-foundation-v3_coloredShape__0NhZb {
+    opacity: 0;
+    transition:
+        opacity 0.8s ease-in-out,
+        transform 0.8s ease-in-out;
+    animation: colour-foundation-v3_coloredShapeFadeIn__I6t3_ 0.8s ease-in-out 0s forwards;
+}
+
+.colour-foundation-v3_coloredShape__0NhZb:nth-child(1) {
+    animation-delay: 0s;
+    transform: rotate(0deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v3_coloredShape__0NhZb:nth-child(2) {
+    animation-delay: 0.2s;
+    transform: rotate(-45deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v3_coloredShape__0NhZb:nth-child(3) {
+    animation-delay: 0.4s;
+    transform: rotate(-90deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v3_coloredShape__0NhZb:nth-child(4) {
+    animation-delay: 0.6s;
+    transform: rotate(-135deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v3_iconElement__uLp5C {
+    opacity: 0;
+    animation: colour-foundation-v3_iconFadeIn__iaE8q 0.8s ease-in-out 1s forwards;
+}
+
+.colour-foundation-v3_blackSpikyElement__GiceS {
+    opacity: 0;
+    animation: colour-foundation-v3_iconFadeIn__iaE8q 0.8s ease-in-out 1s forwards;
+}
+
+/* Arrow body - drawing animation */
+.colour-foundation-v3_arrowBody__Bj4j4 {
+    opacity: 0;
+    fill: #101214;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: colour-foundation-v3_drawArrowBody__Wdyou 0.5s ease-in-out 1s forwards;
+}
+
+/* Arrow head - appears after body */
+.colour-foundation-v3_arrowHead__a7y1L {
+    opacity: 0;
+    fill: #101214;
+    animation: colour-foundation-v3_arrowHeadFadeIn__IEzRa 0.3s ease-in-out 1.5s forwards;
+}
+
+.colour-foundation-v3_cross1__hG_Yr {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: colour-foundation-v3_spinAndFadeIn__ln2wJ 0.5s ease-out 1.4s forwards;
+}
+
+.colour-foundation-v3_cross2__VkCPy {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: colour-foundation-v3_spinAndFadeIn__ln2wJ 0.5s ease-out 1.6s forwards;
+}
+
+.colour-foundation-v3_cross3__Ww0KI {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: colour-foundation-v3_spinAndFadeIn__ln2wJ 0.5s ease-out 1.8s forwards;
+}
+
+@keyframes colour-foundation-v3_coloredShapeFadeIn__I6t3_ {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes colour-foundation-v3_iconFadeIn__iaE8q {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colour-foundation-v3_arrowHeadFadeIn__IEzRa {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colour-foundation-v3_spinAndFadeIn__ln2wJ {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes colour-foundation-v3_drawArrowBody__Wdyou {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+        opacity: 1;
+    }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./animations/colour/colour-foundation-v4.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+.colour-foundation-v4_svgContainer__AOvuq {
+    cursor: default;
+}
+
+.colour-foundation-v4_coloredShape__BmonQ {
+    opacity: 0;
+    transition:
+        opacity 0.8s ease-in-out,
+        transform 0.8s ease-in-out;
+    animation: colour-foundation-v4_coloredShapeFadeIn__2vu5k 0.8s ease-in-out 0s forwards;
+}
+
+.colour-foundation-v4_coloredShape__BmonQ:nth-child(1) {
+    animation-delay: 0s;
+    transform: rotate(0deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v4_coloredShape__BmonQ:nth-child(2) {
+    animation-delay: 0.2s;
+    transform: rotate(-45deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v4_coloredShape__BmonQ:nth-child(3) {
+    animation-delay: 0.4s;
+    transform: rotate(-90deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v4_coloredShape__BmonQ:nth-child(4) {
+    animation-delay: 0.6s;
+    transform: rotate(-135deg);
+    transform-origin: 67px 90px;
+}
+
+.colour-foundation-v4_iconElement__Bnvsx {
+    opacity: 0;
+    animation: colour-foundation-v4_iconFadeIn__yGk7h 0.8s ease-in-out 1s forwards;
+}
+
+.colour-foundation-v4_blackSpikyElement__1nmS0 {
+    opacity: 0;
+    animation: colour-foundation-v4_iconFadeIn__yGk7h 0.8s ease-in-out 1s forwards;
+}
+
+/* Arrow body - drawing animation */
+.colour-foundation-v4_arrowBody__e_8w3 {
+    opacity: 0;
+    fill: #101214;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+    animation: colour-foundation-v4_drawArrowBody__rwu_q 0.5s ease-in-out 1s forwards;
+}
+
+/* Arrow head - appears after body */
+.colour-foundation-v4_arrowHead__Gbp_T {
+    opacity: 0;
+    fill: #101214;
+    animation: colour-foundation-v4_arrowHeadFadeIn__s5cPS 0.3s ease-in-out 1.5s forwards;
+}
+
+.colour-foundation-v4_cross1__PXPVV {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation:
+        colour-foundation-v4_spinAndFadeIn__bbKFJ 0.5s ease-out 1.4s forwards,
+        colour-foundation-v4_periodicSpin__qXNzt 3s ease-out 2.9s infinite;
+    cursor: pointer;
+}
+
+.colour-foundation-v4_cross2__pr8P_ {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation:
+        colour-foundation-v4_spinAndFadeIn__bbKFJ 0.5s ease-out 1.6s forwards,
+        colour-foundation-v4_periodicSpin__qXNzt 3s ease-out 3.1s infinite;
+    cursor: pointer;
+}
+
+.colour-foundation-v4_cross3__eifRo {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation:
+        colour-foundation-v4_spinAndFadeIn__bbKFJ 0.5s ease-out 1.8s forwards,
+        colour-foundation-v4_periodicSpin__qXNzt 3s ease-out 3.3s infinite;
+    cursor: pointer;
+}
+
+@keyframes colour-foundation-v4_coloredShapeFadeIn__2vu5k {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes colour-foundation-v4_iconFadeIn__yGk7h {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colour-foundation-v4_arrowHeadFadeIn__s5cPS {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colour-foundation-v4_spinAndFadeIn__bbKFJ {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes colour-foundation-v4_drawArrowBody__rwu_q {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+                clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-clip-path: inset(0 0% 0 0);
+                clip-path: inset(0 0% 0 0);
+        opacity: 1;
+    }
+}
+
+@keyframes colour-foundation-v4_periodicSpin__qXNzt {
+    0% {
+        transform: rotate(180deg);
+    }
+    17% {
+        transform: rotate(540deg);
+    }
+    17.1%,
+    100% {
+        transform: rotate(180deg);
+    }
+}
+

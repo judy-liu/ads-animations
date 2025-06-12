@@ -1,0 +1,73 @@
+.svgContainer {
+    cursor: default;
+}
+
+/* Icons Animation Sequence */
+
+/* 1. Top horizontal bar - grows from width 0 to 100% from left edge */
+.topHorizontalBar {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeft 0.8s ease-out 0s forwards;
+}
+
+/* 2. Bottom horizontal bar - grows from width 0 to 100% from left edge */
+.bottomHorizontalBar {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeft 0.8s ease-out 0.3s forwards;
+}
+
+/* 3. Purple gear - scales up from center */
+.purpleGear {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: scaleUp 0.6s ease-out 1s forwards;
+}
+
+/* 4. Green play button - scales up from center */
+.greenPlayButton {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: scaleUp 0.6s ease-out 1.3s forwards;
+}
+
+/* 5. Black overlay - fades in when green play button appears */
+.blackOverlay {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 1.5s forwards;
+}
+
+/* Keyframe animations */
+
+/* Grow from left - for horizontal bars */
+@keyframes growFromLeft {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Scale up - for gear and play button */
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fade in - for overlay */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

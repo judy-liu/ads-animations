@@ -1,0 +1,136 @@
+/* Main container */
+.svgContainer {
+    cursor: pointer;
+}
+
+.coloredShape {
+    opacity: 0;
+    transition:
+        opacity 0.8s ease-in-out,
+        transform 0.8s ease-in-out;
+}
+
+.coloredShape:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.coloredShape:nth-child(2) {
+    transition-delay: 0.2s;
+    transform: rotate(-45deg);
+    transform-origin: 67px 90px;
+}
+
+.coloredShape:nth-child(3) {
+    transition-delay: 0.4s;
+    transform: rotate(-90deg);
+    transform-origin: 67px 90px;
+}
+
+.coloredShape:nth-child(4) {
+    transition-delay: 0.6s;
+    transform: rotate(-135deg);
+    transform-origin: 67px 90px;
+}
+
+.svgContainer:hover .coloredShape {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.iconElement {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.blackSpikyElement {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.svgContainer:hover .iconElement {
+    opacity: 1;
+    transition-delay: 1s;
+}
+
+.svgContainer:hover .blackSpikyElement {
+    opacity: 1;
+    transition-delay: 1s;
+}
+
+/* Arrow body - drawing animation */
+.arrowBody {
+    opacity: 0;
+    fill: #101214;
+    clip-path: inset(0 100% 0 0);
+}
+
+.svgContainer:hover .arrowBody {
+    animation: drawArrowBody 0.5s ease-in-out 1s forwards;
+}
+
+/* Arrow head - appears after body */
+.arrowHead {
+    opacity: 0;
+    fill: #101214;
+}
+
+.svgContainer:hover .arrowHead {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 1.5s;
+}
+
+.cross1 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+}
+
+.cross2 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+}
+
+.cross3 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+}
+
+.svgContainer:hover .cross1 {
+    animation: spinAndFadeIn 0.5s ease-out 1.4s forwards;
+}
+
+.svgContainer:hover .cross2 {
+    animation: spinAndFadeIn 0.5s ease-out 1.6s forwards;
+}
+
+.svgContainer:hover .cross3 {
+    animation: spinAndFadeIn 0.5s ease-out 1.8s forwards;
+}
+
+@keyframes spinAndFadeIn {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes drawArrowBody {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+        opacity: 1;
+    }
+}

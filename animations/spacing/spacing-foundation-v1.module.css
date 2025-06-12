@@ -1,0 +1,99 @@
+.svgContainer {
+    cursor: default;
+}
+
+/* Blue bars - grow from left side (0 width to full width) */
+.blueBar {
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: growFromLeft 0.8s ease-out 0.2s forwards;
+}
+
+.blueBar:nth-child(2) {
+    animation-delay: 0.2s; /* bottom right */
+}
+
+.blueBar:nth-child(3) {
+    animation-delay: 0.4s; /* bottom left */
+}
+
+.blueBar:nth-child(4) {
+    animation-delay: 0.6s; /* top left */
+}
+
+.blueBar:nth-child(5) {
+    animation-delay: 0.8s; /* top right */
+}
+
+/* Orange circle - grow from center */
+.orangeCircle {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: growFromCenter 0.6s ease-out 1.2s forwards;
+}
+
+/* Black overlaps - fade in when circle touches blue bars */
+.blackOverlap {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in-out 1.8s forwards;
+}
+
+/* Black text cursor - flash 2 times then stay at 100% opacity */
+.textCursor {
+    opacity: 0;
+    animation: flashTwice 1.5s ease-in-out 2.4s forwards;
+}
+
+/* Keyframe animations */
+@keyframes growFromLeft {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes growFromCenter {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flashTwice {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

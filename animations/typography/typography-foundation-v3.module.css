@@ -1,0 +1,128 @@
+.svgContainer {
+    cursor: default;
+}
+
+/* Typography Animation Sequence - V3 with complete shapes - SPEEDY VERSION */
+
+/* 1. Blue downstroke - complete parallelogram grows from height 0 to 100% from top edge */
+.blueDownstroke {
+    opacity: 1;
+    clip-path: inset(100% 0 0 0);
+    animation: growFromTop 0.75s ease-out 0s forwards;
+}
+
+/* 2. Purple downstroke - complete parallelogram grows from height 0 to 100% from top edge */
+.purpleDownstroke {
+    opacity: 1;
+    clip-path: inset(100% 0 0 0);
+    animation: growFromTop 0.75s ease-out 0.375s forwards;
+}
+
+/* 3. Green horizontal stroke - complete rectangle grows from width 0 to 100% from left edge */
+.greenHorizontalStroke {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeft 0.525s ease-out 0.825s forwards;
+}
+
+/* 4. Overlaps animate in when strokes actually overlap */
+
+/* Blue and purple overlap - animates in when purple reaches the intersection with blue (mid-way through purple animation) */
+.blueAndPurpleOverlap {
+    opacity: 0;
+    animation: fadeIn 0.225s ease-out 0.9s forwards;
+}
+
+/* Blue and green overlap - animates in when green starts growing from behind blue */
+.blueAndGreenOverlap {
+    opacity: 0;
+    animation: fadeIn 0.225s ease-in 0.75s forwards;
+}
+
+/* Green and purple overlap - animates in when green finishes and touches the edge of purple */
+.greenAndPurpleOverlap {
+    opacity: 0;
+    animation: fadeIn 0.225s ease-out 1.125s forwards;
+}
+
+/* 5. Black doodles - animate like pencil strokes being drawn consecutively */
+
+/* Black doodle 1 - grows from width 0 to 100% from left side */
+.blackDoodle1 {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeft 0.6s ease-in-out 1.2s forwards;
+}
+
+/* Black doodle 2 - grows from width 0 to 100% from left side */
+.blackDoodle2 {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeft 0.7s ease-in-out 1.4s forwards;
+}
+
+/* Black doodle 3 - grows from width 0 to 100% from left side, repeats infinitely */
+.blackDoodle3 {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeftRepeat 3.7s ease-in-out 1.9s infinite;
+}
+
+/* Black doodle 4 - grows from width 0 to 100% from left side, repeats infinitely */
+.blackDoodle4 {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeftRepeat 3.7s ease-in-out 2.1s infinite;
+}
+
+/* Black doodle 5 - grows from width 0 to 100% from left side, repeats infinitely */
+.blackDoodle5 {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeftRepeat 3.7s ease-in-out 2.3s infinite;
+}
+
+/* Keyframe animations */
+
+/* Grow from top - for downstrokes (parallelograms) */
+@keyframes growFromTop {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        clip-path: inset(0% 0 0 0);
+    }
+}
+
+/* Grow from left with repeat - for repeating doodles */
+@keyframes growFromLeftRepeat {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    13% {
+        clip-path: inset(0 0% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Grow from left - for horizontal strokes and doodles */
+@keyframes growFromLeft {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Fade in - for overlaps */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

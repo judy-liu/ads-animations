@@ -1,0 +1,237 @@
+.svgContainer {
+    cursor: default;
+}
+
+/* Icons Animation Sequence V3 - Colored icons first, then black bars */
+
+/* 1. Purple gear - fades and spins clockwise into existence */
+.purpleGear {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: fadeSpinClockwise 1s ease-out 0s forwards;
+}
+
+/* 2. Green play button - spins anti-clockwise into existence */
+.greenPlayButton {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: fadeSpinAntiClockwise 1s ease-out 0.3s forwards;
+}
+
+/* 3. Black overlay - fades in when green button starts */
+.blackOverlay {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out 0.3s forwards;
+}
+
+/* 4. Top horizontal bar - initial draw then periodic redraws */
+.topHorizontalBar {
+    opacity: 1;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    animation:
+        initialDrawTop 2s ease-out 1.2s forwards,
+        redrawTop 6s ease-out 4.2s infinite;
+}
+
+/* 4b. Top middle stroke - thinner stroke with stroke-dasharray animation */
+.topMiddleStroke {
+    opacity: 1;
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation:
+        initialDrawTopMiddle 0.4s ease-out 1.2s forwards,
+        redrawTopMiddle 6s ease-out 4.2s infinite;
+}
+
+/* 5. Bottom horizontal bar - initial draw then periodic redraws */
+.bottomHorizontalBar {
+    opacity: 1;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    animation:
+        initialDrawBottom 2s ease-out 1.6s forwards,
+        redrawBottom 6s ease-out 7.6s infinite;
+}
+
+/* 5b. Bottom middle stroke - thinner stroke with stroke-dasharray animation */
+.bottomMiddleStroke {
+    opacity: 1;
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation:
+        initialDrawBottomMiddle 0.4s ease-out 1.6s forwards,
+        redrawBottomMiddle 6s ease-out 7.6s infinite;
+}
+
+/* Keyframe animations */
+
+/* Fade and spin clockwise - for purple gear */
+@keyframes fadeSpinClockwise {
+    0% {
+        opacity: 0;
+        transform: rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Fade and spin anti-clockwise - for green play button */
+@keyframes fadeSpinAntiClockwise {
+    0% {
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Initial draw animations */
+@keyframes initialDrawTop {
+    0% {
+        stroke-dashoffset: 130;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes initialDrawBottom {
+    0% {
+        stroke-dashoffset: 130;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Initial draw animations for middle strokes */
+@keyframes initialDrawTopMiddle {
+    0% {
+        stroke-dashoffset: 6;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes initialDrawBottomMiddle {
+    0% {
+        stroke-dashoffset: 6;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Refade animations for middle strokes */
+@keyframes refadeTopMiddle {
+    0% {
+        opacity: 1;
+    }
+    2% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes refadeBottomMiddle {
+    0% {
+        opacity: 1;
+    }
+    2% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Redraw animation for top bar - briefly redraws every 6s */
+@keyframes redrawTop {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 130;
+    }
+    25% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Redraw animation for bottom bar - briefly redraws every 6s */
+@keyframes redrawBottom {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 130;
+    }
+    25% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Redraw animations for middle strokes */
+@keyframes redrawTopMiddle {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 6;
+    }
+    13% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes redrawBottomMiddle {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    5% {
+        stroke-dashoffset: 6;
+    }
+    13% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Fade in - for overlay */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,114 @@
+.svgContainer {
+    cursor: default;
+}
+
+/* Full horizontal blue bars - grow from width 0 to 100% from fixed left edge */
+.blueBarTop {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeftFixed 0.8s ease-out 0.2s forwards;
+}
+
+.blueBarBottom {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+    animation: growFromLeftFixed 0.8s ease-out 0.4s forwards;
+}
+
+/* Orange circle - grow from center - FASTER */
+.orangeCircle {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: growFromCenter 0.8s ease-out 1s forwards;
+}
+
+/* Black overlaps - grow in height when circle edges touch blue bars - ADJUSTED FOR FASTER CIRCLE */
+.blackOverlap {
+    opacity: 1;
+}
+
+/* Black overlap top grows from bottom */
+.blackOverlapTop {
+    clip-path: inset(100% 0 0 0);
+    animation: growFromBottom 0.4s ease-out 1.6s forwards;
+}
+
+/* Black overlap bottom grows from top */
+.blackOverlapBottom {
+    clip-path: inset(0 0 100% 0);
+    animation: growFromTop 0.4s ease-out 1.6s forwards;
+}
+
+/* Black text cursor - flash indefinitely */
+.textCursor {
+    opacity: 0;
+    animation: flashInfinitely 1.5s ease-in 1.8s infinite;
+}
+
+/* Keyframe animations */
+@keyframes growFromLeftFixed {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+@keyframes growFromCenter {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes growFromBottom {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        clip-path: inset(0% 0 0 0);
+    }
+}
+
+@keyframes growFromTop {
+    0% {
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        clip-path: inset(0 0 0% 0);
+    }
+}
+
+@keyframes flashInfinitely {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,134 @@
+.svgContainer {
+    cursor: default;
+}
+
+.coloredShape {
+    opacity: 0;
+    transition:
+        opacity 0.8s ease-in-out,
+        transform 0.8s ease-in-out;
+    animation: coloredShapeFadeIn 0.8s ease-in-out 0s forwards;
+}
+
+.coloredShape:nth-child(1) {
+    animation-delay: 0s;
+    transform: rotate(0deg);
+    transform-origin: 67px 90px;
+}
+
+.coloredShape:nth-child(2) {
+    animation-delay: 0.2s;
+    transform: rotate(-45deg);
+    transform-origin: 67px 90px;
+}
+
+.coloredShape:nth-child(3) {
+    animation-delay: 0.4s;
+    transform: rotate(-90deg);
+    transform-origin: 67px 90px;
+}
+
+.coloredShape:nth-child(4) {
+    animation-delay: 0.6s;
+    transform: rotate(-135deg);
+    transform-origin: 67px 90px;
+}
+
+.iconElement {
+    opacity: 0;
+    animation: iconFadeIn 0.8s ease-in-out 1s forwards;
+}
+
+.blackSpikyElement {
+    opacity: 0;
+    animation: iconFadeIn 0.8s ease-in-out 1s forwards;
+}
+
+/* Arrow body - drawing animation */
+.arrowBody {
+    opacity: 0;
+    fill: #101214;
+    clip-path: inset(0 100% 0 0);
+    animation: drawArrowBody 0.5s ease-in-out 1s forwards;
+}
+
+/* Arrow head - appears after body */
+.arrowHead {
+    opacity: 0;
+    fill: #101214;
+    animation: arrowHeadFadeIn 0.3s ease-in-out 1.5s forwards;
+}
+
+.cross1 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: spinAndFadeIn 0.5s ease-out 1.4s forwards;
+}
+
+.cross2 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: spinAndFadeIn 0.5s ease-out 1.6s forwards;
+}
+
+.cross3 {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    animation: spinAndFadeIn 0.5s ease-out 1.8s forwards;
+}
+
+@keyframes coloredShapeFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes iconFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes arrowHeadFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spinAndFadeIn {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes drawArrowBody {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+        opacity: 1;
+    }
+}
