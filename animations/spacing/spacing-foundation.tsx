@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./spacing-foundation-v4.module.css";
+import styles from "./spacing-foundation.module.css";
 
-export default function SpacingFoundationV4() {
+export default function SpacingFoundation() {
     return (
         <section className="w-full min-h-screen bg-white flex items-center justify-center p-8">
             <div className="flex items-center gap-2">

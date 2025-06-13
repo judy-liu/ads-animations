@@ -1,8 +1,8 @@
 import React from "react";
-import SpacingFoundationV4 from "../animations/spacing/spacing-foundation-v4";
-import TypographyFoundationV3 from "../animations/typography/typography-foundation-v3";
-import IconsFoundationV3 from "../animations/icons/icons-foundation-v3";
-import ColourFoundationV4 from "../animations/colour/colour-foundation-v4";
+import SpacingFoundation from "../animations/spacing/spacing-foundation";
+import TypographyFoundation from "../animations/typography/typography-foundation";
+import IconsFoundation from "../animations/icons/icons-foundation";
+import ColourFoundation from "../animations/colour/colour-foundation";
 
 export default function Page() {
     return (
@@ -20,16 +20,16 @@ export default function Page() {
                 }}
             >
                 <div style={{ flex: "0 0 auto" }}>
-                    <ColourFoundationV4 />
+                    <ColourFoundation />
                 </div>
                 <div style={{ flex: "0 0 auto" }}>
-                    <IconsFoundationV3 />
+                    <IconsFoundation />
                 </div>
                 <div style={{ flex: "0 0 auto" }}>
-                    <SpacingFoundationV4 />
+                    <SpacingFoundation />
                 </div>
                 <div style={{ flex: "0 0 auto" }}>
-                    <TypographyFoundationV3 />
+                    <TypographyFoundation />
                 </div>
             </div>
         </main>

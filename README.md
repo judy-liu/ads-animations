@@ -4,27 +4,27 @@ This project contains 4 polished CSS animations representing different design sy
 
 ## 🎨 Animations Included
 
-1. **Colour Foundation** (`colour-foundation-v4`) - Spinning crosses with continuous rotation
-2. **Icons Foundation** (`icons-foundation-v3`) - Pencil-drawing effect with synchronized strokes
-3. **Spacing Foundation** (`spacing-foundation-v4`) - Geometric spacing visualization
-4. **Typography Foundation** (`typography-foundation-v3`) - Text animation effects
+1. **Colour Foundation** - Spinning crosses with continuous rotation
+2. **Icons Foundation** - Pencil-drawing effect with synchronized strokes
+3. **Spacing Foundation** - Geometric spacing visualization
+4. **Typography Foundation** - Text animation effects
 
 ## 📁 File Structure
 
 ```
 animations/
 ├── colour/
-│   ├── colour-foundation-v4.tsx
-│   └── colour-foundation-v4.module.css
+│   ├── colour-foundation.tsx
+│   └── colour-foundation.module.css
 ├── icons/
-│   ├── icons-foundation-v3.tsx
-│   └── icons-foundation-v3.module.css
+│   ├── icons-foundation.tsx
+│   └── icons-foundation.module.css
 ├── spacing/
-│   ├── spacing-foundation-v4.tsx
-│   └── spacing-foundation-v4.module.css
+│   ├── spacing-foundation.tsx
+│   └── spacing-foundation.module.css
 └── typography/
-    ├── typography-foundation-v3.tsx
-    └── typography-foundation-v3.module.css
+    ├── typography-foundation.tsx
+    └── typography-foundation.module.css
 ```
 
 ## 🚀 For CodePen
