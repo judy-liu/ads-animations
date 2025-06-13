@@ -82,7 +82,7 @@ export default function Home() {
                     top: "100%",
                     left: "50%",
                     transform: "translateX(-50%)",
-                    marginTop: "10px",
+                    marginTop: "2px",
                     padding: "6px 12px",
                     backgroundColor: "#1F1F21",
                     color: "#ffffff",
@@ -125,18 +125,44 @@ export default function Home() {
     );
 
     return (
-        <main>
+        <main
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "20px",
+                height: "100vh",
+                boxSizing: "border-box",
+            }}
+        >
+            {/* Card Container */}
             <div
                 style={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1)",
+                    padding: "32px 32px 32px 32px",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
                     alignItems: "center",
-                    padding: "20px",
-                    height: "100vh",
-                    boxSizing: "border-box",
+                    maxWidth: "100%",
+                    border: "1px solid rgba(0, 0, 0, 0.05)",
                 }}
             >
+                {/* Title */}
+                <h1
+                    style={{
+                        fontSize: "24px",
+                        fontWeight: "700",
+                        color: "#1F1F21",
+                        margin: "0 0 32px 0",
+                        fontFamily: "system-ui, -apple-system, sans-serif",
+                        textAlign: "center",
+                    }}
+                >
+                    Animated ADS Foundations 🚗💨✨
+                </h1>
+
                 {/* Animations */}
                 <div
                     style={{
@@ -144,7 +170,7 @@ export default function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         gap: "40px",
-                        marginBottom: "60px",
+                        marginBottom: "32px",
                     }}
                 >
                     <AnimationWrapper label="Colour">
@@ -178,14 +204,17 @@ export default function Home() {
                         cursor: "pointer",
                         transition: "all 0.2s ease",
                         fontFamily: "system-ui, -apple-system, sans-serif",
+                        boxShadow: "0 2px 4px rgba(24, 104, 219, 0.2)",
                     }}
                     onMouseOver={(e) => {
                         e.currentTarget.style.backgroundColor = "#0052CC";
                         e.currentTarget.style.transform = "translateY(-1px)";
+                        e.currentTarget.style.boxShadow = "0 4px 8px rgba(24, 104, 219, 0.3)";
                     }}
                     onMouseOut={(e) => {
                         e.currentTarget.style.backgroundColor = "#1868DB";
                         e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.boxShadow = "0 2px 4px rgba(24, 104, 219, 0.2)";
                     }}
                 >
                     ↻ Replay Animations
