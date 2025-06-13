@@ -41,9 +41,9 @@ export default function Home() {
                     justifyContent: "center",
                     alignItems: "center",
                     gap: "40px",
-                    marginTop: "60px",
                     padding: "20px",
-                    minHeight: "100vh",
+                    height: "100vh",
+                    boxSizing: "border-box",
                 }}
             >
                 <div style={{ flex: "0 0 auto" }}>
