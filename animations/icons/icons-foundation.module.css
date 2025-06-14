@@ -35,7 +35,7 @@
     stroke-dashoffset: 130;
     animation:
         initialDrawTop 2s ease-out 1.2s forwards,
-        redrawTop 6s ease-out 4.2s infinite;
+        redrawTop 8s ease-out 4.2s infinite;
 }
 
 /* 4b. Top middle stroke - thinner stroke with stroke-dasharray animation */
@@ -45,7 +45,7 @@
     stroke-dashoffset: 6;
     animation:
         initialDrawTopMiddle 0.4s ease-out 1.2s forwards,
-        redrawTopMiddle 6s ease-out 4.2s infinite;
+        redrawTopMiddle 8s ease-out 4.2s infinite;
 }
 
 /* 5. Bottom horizontal bar - initial draw then periodic redraws */
@@ -55,7 +55,7 @@
     stroke-dashoffset: 130;
     animation:
         initialDrawBottom 2s ease-out 1.6s forwards,
-        redrawBottom 6s ease-out 7.6s infinite;
+        redrawBottom 8s ease-out 7.6s infinite;
 }
 
 /* 5b. Bottom middle stroke - thinner stroke with stroke-dasharray animation */
@@ -65,7 +65,7 @@
     stroke-dashoffset: 6;
     animation:
         initialDrawBottomMiddle 0.4s ease-out 1.6s forwards,
-        redrawBottomMiddle 6s ease-out 7.6s infinite;
+        redrawBottomMiddle 8s ease-out 7.6s infinite;
 }
 
 /* Keyframe animations */

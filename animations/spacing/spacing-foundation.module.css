@@ -43,7 +43,7 @@
 /* Black text cursor - flash indefinitely */
 .textCursor {
     opacity: 0;
-    animation: flashInfinitely 1.5s ease-in 1.8s infinite;
+    animation: flashInfinitely 8s ease-in 1.8s infinite;
 }
 
 /* Keyframe animations */

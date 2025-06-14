@@ -1,12 +1,13 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import SpacingFoundation from "../animations/spacing/spacing-foundation";
 import TypographyFoundation from "../animations/typography/typography-foundation";
 import IconsFoundation from "../animations/icons/icons-foundation";
 import ColourFoundation from "../animations/colour/colour-foundation";
 
 export default function Home() {
-    // Manual function to restart animations (only called by button)
+    // Function to restart animations
     const restartAnimations = () => {
         // Target specific animation containers only
         const containers = [
@@ -187,38 +188,67 @@ export default function Home() {
                     </AnimationWrapper>
                 </div>
 
-                {/* Refresh Button */}
-                <button
-                    onClick={() => {
-                        console.log("Button clicked - restarting animations");
-                        restartAnimations();
-                    }}
-                    style={{
-                        padding: "10px 20px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        color: "#ffffff",
-                        backgroundColor: "#1868DB",
-                        border: "none",
-                        borderRadius: "6px",
-                        cursor: "pointer",
-                        transition: "all 0.2s ease",
-                        fontFamily: "system-ui, -apple-system, sans-serif",
-                        boxShadow: "0 2px 4px rgba(24, 104, 219, 0.2)",
-                    }}
-                    onMouseOver={(e) => {
-                        e.currentTarget.style.backgroundColor = "#0052CC";
-                        e.currentTarget.style.transform = "translateY(-1px)";
-                        e.currentTarget.style.boxShadow = "0 4px 8px rgba(24, 104, 219, 0.3)";
-                    }}
-                    onMouseOut={(e) => {
-                        e.currentTarget.style.backgroundColor = "#1868DB";
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow = "0 2px 4px rgba(24, 104, 219, 0.2)";
-                    }}
-                >
-                    ↻ Replay Animations
-                </button>
+                {/* Buttons */}
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                    <button
+                        onClick={() => {
+                            console.log("Button clicked - restarting animations");
+                            restartAnimations();
+                        }}
+                        style={{
+                            padding: "10px 20px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            color: "#ffffff",
+                            backgroundColor: "#1868DB",
+                            border: "none",
+                            borderRadius: "6px",
+                            cursor: "pointer",
+                            transition: "all 0.2s ease",
+                            fontFamily: "system-ui, -apple-system, sans-serif",
+                            boxShadow: "0 2px 4px rgba(24, 104, 219, 0.2)",
+                        }}
+                        onMouseOver={(e) => {
+                            e.currentTarget.style.backgroundColor = "#0052CC";
+                            e.currentTarget.style.transform = "translateY(-1px)";
+                            e.currentTarget.style.boxShadow = "0 4px 8px rgba(24, 104, 219, 0.3)";
+                        }}
+                        onMouseOut={(e) => {
+                            e.currentTarget.style.backgroundColor = "#1868DB";
+                            e.currentTarget.style.transform = "translateY(0)";
+                            e.currentTarget.style.boxShadow = "0 2px 4px rgba(24, 104, 219, 0.2)";
+                        }}
+                    >
+                        ↻ Replay Animations
+                    </button>
+
+                    {/* <a
+                        href="/easing"
+                        style={{
+                            display: "inline-block",
+                            padding: "10px 20px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            color: "#1868DB",
+                            backgroundColor: "transparent",
+                            border: "2px solid #1868DB",
+                            borderRadius: "6px",
+                            textDecoration: "none",
+                            transition: "all 0.2s ease",
+                            fontFamily: "system-ui, -apple-system, sans-serif",
+                        }}
+                        onMouseOver={(e) => {
+                            e.currentTarget.style.backgroundColor = "#1868DB";
+                            e.currentTarget.style.color = "#ffffff";
+                        }}
+                        onMouseOut={(e) => {
+                            e.currentTarget.style.backgroundColor = "transparent";
+                            e.currentTarget.style.color = "#1868DB";
+                        }}
+                    >
+                        📈 Easing Demo
+                    </a> */}
+                </div>
             </div>
         </main>
     );

@@ -66,7 +66,7 @@
     transform-box: fill-box;
     animation:
         spinAndFadeIn 0.5s ease-out 1.4s forwards,
-        periodicSpin 3s ease-out 2.9s infinite;
+        periodicSpin 8s ease-out 2.9s infinite;
     cursor: pointer;
 }
 
@@ -77,7 +77,7 @@
     transform-box: fill-box;
     animation:
         spinAndFadeIn 0.5s ease-out 1.6s forwards,
-        periodicSpin 3s ease-out 3.1s infinite;
+        periodicSpin 8s ease-out 3.1s infinite;
     cursor: pointer;
 }
 
@@ -88,7 +88,7 @@
     transform-box: fill-box;
     animation:
         spinAndFadeIn 0.5s ease-out 1.8s forwards,
-        periodicSpin 3s ease-out 3.3s infinite;
+        periodicSpin 8s ease-out 3.3s infinite;
     cursor: pointer;
 }
 

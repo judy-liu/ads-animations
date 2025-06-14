@@ -65,21 +65,21 @@
 .blackDoodle3 {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
-    animation: growFromLeftRepeat 3.7s ease-in-out 1.9s infinite;
+    animation: growFromLeftRepeat 8s ease-in-out 1.9s infinite;
 }
 
 /* Black doodle 4 - grows from width 0 to 100% from left side, repeats infinitely */
 .blackDoodle4 {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
-    animation: growFromLeftRepeat 3.7s ease-in-out 2.1s infinite;
+    animation: growFromLeftRepeat 8s ease-in-out 2.1s infinite;
 }
 
 /* Black doodle 5 - grows from width 0 to 100% from left side, repeats infinitely */
 .blackDoodle5 {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
-    animation: growFromLeftRepeat 3.7s ease-in-out 2.3s infinite;
+    animation: growFromLeftRepeat 8s ease-in-out 2.3s infinite;
 }
 
 /* Keyframe animations */
