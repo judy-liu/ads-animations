@@ -43,22 +43,22 @@ export default function EasingDemo() {
         style.textContent = `
             .ball-track {
                 position: relative;
-                width: 200px;
-                height: 50px;
+                width: 160px;
+                height: 44px;
                 background-color: #f5f5f5;
-                border-radius: 25px;
+                border-radius: 22px;
                 overflow: hidden;
                 border: 2px solid #e0e0e0;
             }
             
             .ball {
-                width: 30px;
-                height: 30px;
+                width: 28px;
+                height: 28px;
                 background-color: #1868DB;
                 border-radius: 50%;
                 position: absolute;
                 top: 50%;
-                left: 10px;
+                left: 8px;
                 transform: translateY(-50%) translateX(0px);
                 box-shadow: 0 2px 8px rgba(24, 104, 219, 0.3);
             }
@@ -93,27 +93,27 @@ export default function EasingDemo() {
             
             @keyframes moveEaseIn {
                 from { transform: translateY(-50%) translateX(0px); }
-                to { transform: translateY(-50%) translateX(150px); }
+                to { transform: translateY(-50%) translateX(120px); }
             }
             
             @keyframes moveEaseOut {
                 from { transform: translateY(-50%) translateX(0px); }
-                to { transform: translateY(-50%) translateX(150px); }
+                to { transform: translateY(-50%) translateX(120px); }
             }
             
             @keyframes moveEaseInOut {
                 from { transform: translateY(-50%) translateX(0px); }
-                to { transform: translateY(-50%) translateX(150px); }
+                to { transform: translateY(-50%) translateX(120px); }
             }
             
             @keyframes fadeOutAndReset {
                 0% { 
                     opacity: 1; 
-                    transform: translateY(-50%) translateX(150px); 
+                    transform: translateY(-50%) translateX(120px); 
                 }
                 50% { 
                     opacity: 0; 
-                    transform: translateY(-50%) translateX(150px); 
+                    transform: translateY(-50%) translateX(120px); 
                 }
                 51% { 
                     opacity: 0; 
@@ -157,11 +157,11 @@ export default function EasingDemo() {
                 style={{
                     backgroundColor: "#f8f9fa",
                     borderRadius: "8px",
-                    padding: "16px",
+                    padding: "12px",
                     boxShadow:
                         "inset 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(255, 255, 255, 0.5)",
                     border: "1px solid rgba(0, 0, 0, 0.08)",
-                    width: "220px",
+                    width: "180px",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                 }}
@@ -180,10 +180,10 @@ export default function EasingDemo() {
             >
                 <h3
                     style={{
-                        fontSize: "16px",
+                        fontSize: "14px",
                         fontWeight: "600",
                         color: "#1F1F21",
-                        margin: "0 0 6px 0",
+                        margin: "0 0 4px 0",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                     }}
                 >
@@ -191,9 +191,9 @@ export default function EasingDemo() {
                 </h3>
                 <p
                     style={{
-                        fontSize: "12px",
+                        fontSize: "11px",
                         color: "#666",
-                        margin: "0 0 12px 0",
+                        margin: "0 0 8px 0",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                         lineHeight: "1.3",
                     }}
@@ -219,7 +219,7 @@ export default function EasingDemo() {
                         viewBox="0 0 120 135"
                         style={{
                             aspectRatio: "1",
-                            height: "220px",
+                            height: "160px",
                         }}
                     >
                         {/* Grid lines */}
@@ -293,12 +293,12 @@ export default function EasingDemo() {
                 {/* Easing function name */}
                 <div
                     style={{
-                        marginTop: "16px",
-                        fontSize: "10px",
+                        marginTop: "12px",
+                        fontSize: "9px",
                         fontFamily: "monospace",
                         color: "#1868DB",
                         backgroundColor: "#f0f7ff",
-                        padding: "3px 6px",
+                        padding: "2px 4px",
                         borderRadius: "3px",
                         textAlign: "center",
                     }}
@@ -312,42 +312,50 @@ export default function EasingDemo() {
     return (
         <main
             style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "20px",
                 minHeight: "100vh",
-                padding: "40px 20px",
+                boxSizing: "border-box",
                 fontFamily: "system-ui, -apple-system, sans-serif",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#ffffff",
             }}
         >
             <div
                 style={{
-                    maxWidth: "900px",
-                    margin: "0 auto",
                     backgroundColor: "#ffffff",
-                    borderRadius: "12px",
-                    padding: "40px",
-                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1)",
+                    padding: "32px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    maxWidth: "100%",
                     border: "1px solid rgba(0, 0, 0, 0.05)",
                 }}
             >
                 {/* Header */}
-                <div style={{ textAlign: "center", marginBottom: "40px" }}>
+                <div style={{ textAlign: "center", marginBottom: "24px" }}>
                     <h1
                         style={{
-                            fontSize: "32px",
+                            fontSize: "24px",
                             fontWeight: "700",
                             color: "#1F1F21",
-                            margin: "0 0 16px 0",
+                            margin: "0 0 12px 0",
+                            fontFamily: "system-ui, -apple-system, sans-serif",
                         }}
                     >
                         CSS Easing Functions Demo 📈☄️✨
                     </h1>
                     <p
                         style={{
-                            fontSize: "16px",
+                            fontSize: "14px",
                             color: "#666",
-                            margin: "0 140px 32px 140px",
-                            lineHeight: "1.5",
-                            textAlign: "left",
+                            margin: "0 0 20px 0",
+                            lineHeight: "1.4",
+                            textAlign: "center",
+                            maxWidth: "500px",
                         }}
                     >
                         Compare how the 3 most common easing functions affect animation timing and
@@ -358,13 +366,13 @@ export default function EasingDemo() {
                     <button
                         onClick={startAnimation}
                         style={{
-                            padding: "12px 24px",
-                            fontSize: "16px",
+                            padding: "10px 20px",
+                            fontSize: "14px",
                             fontWeight: "600",
                             color: "#ffffff",
                             backgroundColor: "#1868DB",
                             border: "none",
-                            borderRadius: "8px",
+                            borderRadius: "6px",
                             cursor: "pointer",
                             transition: "all 0.2s ease",
                             boxShadow: "0 2px 4px rgba(24, 104, 219, 0.2)",
@@ -390,8 +398,8 @@ export default function EasingDemo() {
                         display: "flex",
                         flexWrap: "wrap",
                         justifyContent: "center",
-                        gap: "24px",
-                        marginBottom: "40px",
+                        gap: "16px",
+                        marginBottom: "24px",
                     }}
                 >
                     <EasingDemo
@@ -407,7 +415,7 @@ export default function EasingDemo() {
                     <EasingDemo
                         title="Ease-In-Out"
                         easing="ease-in-out"
-                        description="Starts slow, speeds up in the middle, then slows down. Creates smooth, natural-feeling transitions."
+                        description="Starts slow, speeds up in the middle, then slows down. Creates natural-feeling transitions."
                     />
                 </div>
 
