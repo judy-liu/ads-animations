@@ -2,6 +2,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import svgPaths from "./svg-paths";
 
+// Helper function to get themed colors based on theme mode
+function getThemedColor(lightColor: string, darkColor: string, themeMode?: string) {
+    return themeMode === "dark" ? darkColor : lightColor;
+}
+
 interface CursorProps {
     x: number;
     y: number;
@@ -50,11 +55,11 @@ function Cursor({ x, y }: CursorProps) {
     );
 }
 
-function Icon1() {
+function Icon1({ themeMode }: { themeMode?: string }) {
     return (
         <div
             style={{
-                backgroundColor: "var(--color-success)",
+                backgroundColor: getThemedColor("#36b37e", "#36b37e", themeMode), // Success color is same in both themes
                 width: "33.358px",
                 height: "33.358px",
                 borderRadius: "3.1273px",
@@ -64,11 +69,11 @@ function Icon1() {
     );
 }
 
-function Text() {
+function Text({ themeMode }: { themeMode?: string }) {
     return (
         <div
             style={{
-                backgroundColor: "var(--color-text-subtle)",
+                backgroundColor: getThemedColor("#6b778c", "#9fadbc", themeMode),
                 height: "6.255px",
                 width: "101.116px",
                 borderRadius: "3.1273px",
@@ -78,11 +83,11 @@ function Text() {
     );
 }
 
-function Text1() {
+function Text1({ themeMode }: { themeMode?: string }) {
     return (
         <div
             style={{
-                backgroundColor: "var(--color-text-subtle)",
+                backgroundColor: getThemedColor("#6b778c", "#9fadbc", themeMode),
                 height: "6.255px",
                 width: "100%",
                 borderRadius: "3.1273px",
@@ -92,7 +97,7 @@ function Text1() {
     );
 }
 
-function Header() {
+function Header({ themeMode }: { themeMode?: string }) {
     return (
         <div style={{ position: "relative", flexShrink: 0, width: "156.365px" }}>
             <div
@@ -108,18 +113,18 @@ function Header() {
                     gap: "12.509px",
                 }}
             >
-                <Text />
-                <Text1 />
+                <Text themeMode={themeMode} />
+                <Text1 themeMode={themeMode} />
             </div>
         </div>
     );
 }
 
-function Text2() {
+function Text2({ themeMode }: { themeMode?: string }) {
     return (
         <div
             style={{
-                backgroundColor: "var(--color-link)",
+                backgroundColor: getThemedColor("#0052cc", "#4c9aff", themeMode),
                 height: "6.255px",
                 width: "58.376px",
                 borderRadius: "3.1273px",
@@ -129,7 +134,7 @@ function Text2() {
     );
 }
 
-function Actions() {
+function Actions({ themeMode }: { themeMode?: string }) {
     return (
         <div style={{ position: "relative", flexShrink: 0, height: "25.018px" }}>
             <div
@@ -147,14 +152,14 @@ function Actions() {
                 }}
             >
                 {[...Array(2).keys()].map((_, i) => (
-                    <Text2 key={i} />
+                    <Text2 key={i} themeMode={themeMode} />
                 ))}
             </div>
         </div>
     );
 }
 
-function Content() {
+function Content({ themeMode }: { themeMode?: string }) {
     return (
         <div style={{ position: "relative", flexShrink: 0, width: "308.561px" }}>
             <div
@@ -171,14 +176,14 @@ function Content() {
                     gap: "4.17px",
                 }}
             >
-                <Header />
-                <Actions />
+                <Header themeMode={themeMode} />
+                <Actions themeMode={themeMode} />
             </div>
         </div>
     );
 }
 
-function Cross() {
+function Cross({ themeMode }: { themeMode?: string }) {
     return (
         <div
             style={{
@@ -200,14 +205,14 @@ function Cross() {
                         width="2.08487"
                         height="16.679"
                         rx="1.04244"
-                        fill="var(--color-text-subtle)"
+                        fill={getThemedColor("#6b778c", "#9fadbc", themeMode)}
                         transform="rotate(45 8.3395 8.3395)"
                     />
                     <rect
                         width="2.08487"
                         height="16.679"
                         rx="1.04244"
-                        fill="var(--color-text-subtle)"
+                        fill={getThemedColor("#6b778c", "#9fadbc", themeMode)}
                         transform="rotate(-45 8.3395 8.3395)"
                     />
                 </g>
@@ -216,14 +221,14 @@ function Cross() {
     );
 }
 
-function Flag({ shouldMove }: { shouldMove: boolean }) {
+function Flag({ shouldMove, themeMode }: { shouldMove: boolean; themeMode?: string }) {
     return (
         <motion.div
             style={{
                 position: "absolute",
                 borderRadius: "10.4243px",
-                backgroundColor: "var(--color-background-input)",
-                border: "2px solid var(--color-border)",
+                backgroundColor: getThemedColor("#ffffff", "#22272b", themeMode),
+                border: `2px solid ${getThemedColor("#dfe1e6", "#3c4c5c", themeMode)}`,
                 width: "252.269px",
                 height: "95.904px",
             }}
@@ -249,8 +254,8 @@ function Flag({ shouldMove }: { shouldMove: boolean }) {
                         gap: "12.509px",
                     }}
                 >
-                    <Icon1 />
-                    <Content />
+                    <Icon1 themeMode={themeMode} />
+                    <Content themeMode={themeMode} />
                 </div>
             </div>
         </motion.div>
@@ -261,6 +266,7 @@ function SelectionFrame({
     phase,
     cursorPosition,
     purpleRect,
+    themeMode,
 }: {
     phase: "hidden" | "resizing" | "blue-snap" | "purple-snap" | "purple-moved";
     cursorPosition: { x: number; y: number };
@@ -268,6 +274,7 @@ function SelectionFrame({
         initial: { left: number; top: number; width: number; height: number };
         moved: { left: number; top: number; width: number; height: number };
     };
+    themeMode?: string;
 }) {
     if (phase === "hidden") return null;
 
@@ -297,8 +304,12 @@ function SelectionFrame({
                 width: Math.max(8.9, cursorPosition.x - startX),
                 height: Math.max(8.9, cursorPosition.y - startY),
             };
-            borderColor = "var(--color-link)";
-            backgroundColor = "var(--color-link-alpha)";
+            borderColor = getThemedColor("#0052cc", "#4c9aff", themeMode);
+            backgroundColor = getThemedColor(
+                "rgba(0, 82, 204, 0.15)",
+                "rgba(76, 154, 255, 0.15)",
+                themeMode
+            );
             duration = 1.2;
             break;
         case "blue-snap":
@@ -309,8 +320,12 @@ function SelectionFrame({
                 width: blueSnapPosition.width,
                 height: blueSnapPosition.height,
             };
-            borderColor = "var(--color-link)";
-            backgroundColor = "var(--color-link-alpha)";
+            borderColor = getThemedColor("#0052cc", "#4c9aff", themeMode);
+            backgroundColor = getThemedColor(
+                "rgba(0, 82, 204, 0.15)",
+                "rgba(76, 154, 255, 0.15)",
+                themeMode
+            );
             duration = 0; // Instant
             break;
         case "purple-snap":
@@ -321,7 +336,7 @@ function SelectionFrame({
                 width: purpleRect.initial.width,
                 height: purpleRect.initial.height,
             };
-            borderColor = "var(--color-discovery-bold)";
+            borderColor = getThemedColor("#af59e1", "#9b8afb", themeMode);
             backgroundColor = "transparent";
             duration = 0; // Instant
             break;
@@ -333,7 +348,7 @@ function SelectionFrame({
                 width: purpleRect.moved.width,
                 height: purpleRect.moved.height,
             };
-            borderColor = "var(--color-discovery-bold)";
+            borderColor = getThemedColor("#af59e1", "#9b8afb", themeMode);
             backgroundColor = "transparent";
             duration = 0.6;
             break;
@@ -394,14 +409,22 @@ function SelectionFrame({
                                 style={{
                                     position: "absolute",
                                     inset: 0,
-                                    backgroundColor: "var(--color-background-input)",
+                                    backgroundColor: getThemedColor(
+                                        "#ffffff",
+                                        "#22272b",
+                                        themeMode
+                                    ),
                                 }}
                             >
                                 <div
                                     style={{
                                         position: "absolute",
                                         border: "4.45px solid",
-                                        borderColor: "var(--color-discovery-bold)",
+                                        borderColor: getThemedColor(
+                                            "#af59e1",
+                                            "#9b8afb",
+                                            themeMode
+                                        ),
                                         inset: "-4.45px",
                                         pointerEvents: "none",
                                     }}
@@ -412,7 +435,7 @@ function SelectionFrame({
                             style={{
                                 position: "absolute",
                                 border: "4.45px solid",
-                                borderColor: "var(--color-discovery-bold)",
+                                borderColor: getThemedColor("#af59e1", "#9b8afb", themeMode),
                                 inset: 0,
                                 pointerEvents: "none",
                                 borderRadius: "2.225px",
@@ -466,10 +489,12 @@ function WhiteModal({
     isVisible,
     buttonState,
     showLoading,
+    themeMode,
 }: {
     isVisible: boolean;
     buttonState: "normal" | "hover" | "pressed" | "dark-pressed";
     showLoading: boolean;
+    themeMode?: string;
 }) {
     return (
         <AnimatePresence>
@@ -493,7 +518,7 @@ function WhiteModal({
                             borderRadius: "13.35px",
                             top: "-233.149px",
                             width: "1780px",
-                            backgroundColor: "var(--color-background-input)",
+                            backgroundColor: getThemedColor("#ffffff", "#22272b", themeMode),
                         }}
                     >
                         <div
@@ -549,7 +574,11 @@ function WhiteModal({
                                                 borderRadius: "13.35px",
                                                 flexShrink: 0,
                                                 width: "315.95px",
-                                                backgroundColor: "var(--color-text-subtle)",
+                                                backgroundColor: getThemedColor(
+                                                    "#6b778c",
+                                                    "#9fadbc",
+                                                    themeMode
+                                                ),
                                             }}
                                         />
                                         <div
@@ -589,8 +618,11 @@ function WhiteModal({
                                                                 borderRadius: "13.35px",
                                                                 width: "100%",
                                                                 height: "100%",
-                                                                backgroundColor:
-                                                                    "var(--color-background-neutral-subtle)",
+                                                                backgroundColor: getThemedColor(
+                                                                    "#f4f5f7",
+                                                                    "#1d2125",
+                                                                    themeMode
+                                                                ),
                                                             }}
                                                         />
                                                     </div>
@@ -603,8 +635,11 @@ function WhiteModal({
                                                     height: "26.7px",
                                                     left: 0,
                                                     right: 0,
-                                                    backgroundColor:
-                                                        "var(--color-background-input)",
+                                                    backgroundColor: getThemedColor(
+                                                        "#ffffff",
+                                                        "#22272b",
+                                                        themeMode
+                                                    ),
                                                 }}
                                             >
                                                 <div
@@ -616,8 +651,11 @@ function WhiteModal({
                                                         borderRadius: "13.35px",
                                                         top: "50%",
                                                         transform: "translateY(-50%)",
-                                                        backgroundColor:
-                                                            "var(--color-background-neutral-subtle)",
+                                                        backgroundColor: getThemedColor(
+                                                            "#f4f5f7",
+                                                            "#1d2125",
+                                                            themeMode
+                                                        ),
                                                     }}
                                                 />
                                             </div>
@@ -677,8 +715,11 @@ function WhiteModal({
                                                             borderRadius: "13.35px",
                                                             flexShrink: 0,
                                                             width: "195.8px",
-                                                            backgroundColor:
-                                                                "var(--color-background-neutral-subtle)",
+                                                            backgroundColor: getThemedColor(
+                                                                "#f4f5f7",
+                                                                "#1d2125",
+                                                                themeMode
+                                                            ),
                                                         }}
                                                     />
                                                 </div>
@@ -694,14 +735,34 @@ function WhiteModal({
                                             }}
                                             animate={{
                                                 backgroundColor: showLoading
-                                                    ? "var(--color-link)"
+                                                    ? getThemedColor(
+                                                          "#0052cc",
+                                                          "#4c9aff",
+                                                          themeMode
+                                                      )
                                                     : buttonState === "dark-pressed"
-                                                      ? "var(--color-brand-boldest)"
+                                                      ? getThemedColor(
+                                                            "#0052cc",
+                                                            "#4c9aff",
+                                                            themeMode
+                                                        )
                                                       : buttonState === "pressed"
-                                                        ? "var(--color-brand-boldest)"
+                                                        ? getThemedColor(
+                                                              "#0052cc",
+                                                              "#4c9aff",
+                                                              themeMode
+                                                          )
                                                         : buttonState === "hover"
-                                                          ? "var(--color-brand-boldest)"
-                                                          : "var(--color-background-neutral-subtle)",
+                                                          ? getThemedColor(
+                                                                "#0052cc",
+                                                                "#4c9aff",
+                                                                themeMode
+                                                            )
+                                                          : getThemedColor(
+                                                                "#f4f5f7",
+                                                                "#1d2125",
+                                                                themeMode
+                                                            ),
                                             }}
                                             transition={{ duration: 0.2 }}
                                         >
@@ -726,7 +787,7 @@ function WhiteModal({
                             style={{
                                 position: "absolute",
                                 border: "8.9px solid",
-                                borderColor: "var(--color-border)",
+                                borderColor: getThemedColor("#dfe1e6", "#3c4c5c", themeMode),
                                 inset: 0,
                                 pointerEvents: "none",
                                 borderRadius: "13.35px",
@@ -750,14 +811,14 @@ function WhiteModal({
                         }}
                         animate={{
                             backgroundColor: showLoading
-                                ? "var(--color-border-brand)"
+                                ? getThemedColor("#0052cc", "#4c9aff", themeMode)
                                 : buttonState === "dark-pressed"
-                                  ? "var(--color-border-brand)"
+                                  ? getThemedColor("#0052cc", "#4c9aff", themeMode)
                                   : buttonState === "pressed"
-                                    ? "var(--color-background-brand-bold-hovered)"
+                                    ? getThemedColor("#0747a6", "#2c3e5d", themeMode)
                                     : buttonState === "hover"
-                                      ? "var(--color-border-brand)"
-                                      : "var(--color-border-brand)",
+                                      ? getThemedColor("#0052cc", "#4c9aff", themeMode)
+                                      : getThemedColor("#0052cc", "#4c9aff", themeMode),
                         }}
                         transition={{ duration: 0.2 }}
                     >
@@ -784,7 +845,8 @@ function WhiteModal({
     );
 }
 
-export default function ModalInteraction() {
+export default function ModalInteraction({ isDarkMode }: { isDarkMode?: boolean }) {
+    const themeMode = isDarkMode ? "dark" : "light";
     const [animationState, setAnimationState] = useState(0);
     const [cursorPosition, setCursorPosition] = useState({ x: 94.16, y: 31.18 });
     const [selectionPhase, setSelectionPhase] = useState<
@@ -887,21 +949,23 @@ export default function ModalInteraction() {
                 overflow: "hidden",
                 width: "468px",
                 height: "220px",
-                backgroundColor: "var(--color-background-neutral-subtle)",
+                backgroundColor: getThemedColor("#f4f5f7", "#1d2125", themeMode),
             }}
             animate={{ opacity: globalOpacity }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-            <Flag shouldMove={modalShouldMove} />
+            <Flag shouldMove={modalShouldMove} themeMode={themeMode} />
             <SelectionFrame
                 phase={selectionPhase}
                 cursorPosition={cursorPosition}
                 purpleRect={purpleRect}
+                themeMode={themeMode}
             />
             <WhiteModal
                 isVisible={whiteModalVisible}
                 buttonState={buttonState}
                 showLoading={showLoading}
+                themeMode={themeMode}
             />
             <Cursor x={cursorPosition.x} y={cursorPosition.y} />
         </motion.div>

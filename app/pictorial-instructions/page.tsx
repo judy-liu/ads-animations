@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { token } from "@atlaskit/tokens";
 import ModalInteraction from "../../animations/pictorial-instructions/modal-interaction/modal-interaction";
 
 export default function PictorialInstructionsPage() {
@@ -148,8 +147,6 @@ export default function PictorialInstructionsPage() {
                     --color-discovery-bold: #af59e1;
                     --color-brand-boldest: #0052cc;
                     --color-link-alpha: rgba(0, 82, 204, 0.15);
-                    --color-border-brand: #0052cc;
-                    --color-background-brand-bold-hovered: #0747a6;
                 }
 
                 body.dark {
@@ -165,8 +162,6 @@ export default function PictorialInstructionsPage() {
                     --color-discovery-bold: #9b8afb;
                     --color-brand-boldest: #4c9aff;
                     --color-link-alpha: rgba(76, 154, 255, 0.15);
-                    --color-border-brand: #4c9aff;
-                    --color-background-brand-bold-hovered: #2c3e5d;
                 }
             `}</style>
             <main
@@ -334,7 +329,7 @@ export default function PictorialInstructionsPage() {
                             description="Complex modal interaction sequence with cursor movement, selection frames, and button states"
                         >
                             <div key={`modal-interaction-${animationKey}`}>
-                                <ModalInteraction />
+                                <ModalInteraction isDarkMode={isDarkMode} />
                             </div>
                         </AnimationWrapper>
                     </div>
