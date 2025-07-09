@@ -1,73 +1,57 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import SpacingFoundation from "../animations/spacing/spacing-foundation";
-import TypographyFoundation from "../animations/typography/typography-foundation";
-import IconsFoundation from "../animations/icons/icons-foundation";
-import ColourFoundation from "../animations/colour/colour-foundation";
-import IconsMotion from "../animations/icons/icons-motion";
-import IconsMotionAdvanced from "../animations/icons/icons-motion-advanced";
+import { useEffect, useRef } from "react";
+import IconsFoundation from "../../animations/icons/icons-foundation";
+import IconsMotion from "../../animations/icons/icons-motion";
+import IconsMotionAdvanced from "../../animations/icons/icons-motion-advanced";
 
-export default function Home() {
-    const [animationKey, setAnimationKey] = useState(0);
+export default function MotionPage() {
+    // Function to restart CSS animations
+    const restartAnimations = () => {
+        const container = document.querySelector(".icons-foundation_svgContainer__w38RQ");
+        if (container) {
+            const animatedElements = container.querySelectorAll('[class*="foundation_"]');
 
-    // Function to restart all animations
-    const restartAllAnimations = () => {
-        // Force re-render of Motion components by updating key
-        setAnimationKey((prev) => prev + 1);
+            animatedElements.forEach((element) => {
+                const htmlElement = element as HTMLElement;
+                const classList = Array.from(htmlElement.classList);
 
-        // Restart CSS animations
-        const containers = [
-            ".colour-foundation_svgContainer__QEuTu",
-            ".icons-foundation_svgContainer__w38RQ",
-            ".spacing-foundation_svgContainer__a38xW",
-            ".typography-foundation_svgContainer__AD9Tt",
-        ];
+                // Only target classes that are actual animation classes
+                const animationClasses = classList.filter(
+                    (className) =>
+                        className.includes("foundation_") &&
+                        className.includes("__") &&
+                        !className.includes("svgContainer")
+                );
 
-        containers.forEach((containerSelector) => {
-            const container = document.querySelector(containerSelector);
-            if (container) {
-                const animatedElements = container.querySelectorAll('[class*="foundation_"]');
+                if (animationClasses.length > 0) {
+                    // Remove animation classes
+                    animationClasses.forEach((className) => {
+                        htmlElement.classList.remove(className);
+                    });
 
-                animatedElements.forEach((element) => {
-                    const htmlElement = element as HTMLElement;
-                    const classList = Array.from(htmlElement.classList);
+                    // Force reflow
+                    htmlElement.offsetHeight;
 
-                    // Only target classes that are actual animation classes
-                    const animationClasses = classList.filter(
-                        (className) =>
-                            className.includes("foundation_") &&
-                            className.includes("__") &&
-                            !className.includes("svgContainer")
-                    );
-
-                    if (animationClasses.length > 0) {
-                        // Remove animation classes
+                    // Add classes back after a short delay
+                    setTimeout(() => {
                         animationClasses.forEach((className) => {
-                            htmlElement.classList.remove(className);
+                            htmlElement.classList.add(className);
                         });
-
-                        // Force reflow
-                        htmlElement.offsetHeight;
-
-                        // Add classes back after a short delay
-                        setTimeout(() => {
-                            animationClasses.forEach((className) => {
-                                htmlElement.classList.add(className);
-                            });
-                        }, 50);
-                    }
-                });
-            }
-        });
+                    }, 50);
+                }
+            });
+        }
     };
 
     const AnimationWrapper = ({
         children,
         label,
+        description,
     }: {
         children: React.ReactNode;
         label: string;
+        description: string;
     }) => (
         <div
             className="animation-wrapper"
@@ -77,58 +61,43 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 flex: "0 0 auto",
+                padding: "20px",
+                backgroundColor: "#f8f9fa",
+                borderRadius: "12px",
+                border: "1px solid #e9ecef",
             }}
         >
             {/* Animation container - completely isolated */}
-            <div style={{ position: "relative" }}>{children}</div>
+            <div style={{ position: "relative", marginBottom: "16px" }}>{children}</div>
 
-            {/* Label that appears on hover - pure CSS */}
-            <div
-                className="hover-label"
+            {/* Label */}
+            <h3
                 style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    marginTop: "2px",
-                    padding: "6px 12px",
-                    backgroundColor: "#1F1F21",
-                    color: "#ffffff",
-                    fontSize: "14px",
+                    fontSize: "16px",
                     fontWeight: "600",
-                    borderRadius: "4px",
+                    color: "#1F1F21",
+                    margin: "0 0 8px 0",
                     fontFamily: "system-ui, -apple-system, sans-serif",
-                    opacity: 0,
-                    visibility: "hidden",
-                    transition: "opacity 0.3s ease, visibility 0.3s ease",
-                    whiteSpace: "nowrap",
-                    pointerEvents: "none",
-                    zIndex: 10,
+                    textAlign: "center",
                 }}
             >
                 {label}
-                {/* Small arrow pointing up */}
-                <div
-                    style={{
-                        position: "absolute",
-                        top: "-4px",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        width: "0",
-                        height: "0",
-                        borderLeft: "4px solid transparent",
-                        borderRight: "4px solid transparent",
-                        borderBottom: "4px solid #1F1F21",
-                    }}
-                />
-            </div>
+            </h3>
 
-            <style jsx>{`
-                .animation-wrapper:hover .hover-label {
-                    opacity: 1 !important;
-                    visibility: visible !important;
-                }
-            `}</style>
+            {/* Description */}
+            <p
+                style={{
+                    fontSize: "14px",
+                    color: "#6c757d",
+                    margin: "0",
+                    fontFamily: "system-ui, -apple-system, sans-serif",
+                    textAlign: "center",
+                    maxWidth: "200px",
+                    lineHeight: "1.4",
+                }}
+            >
+                {description}
+            </p>
         </div>
     );
 
@@ -141,6 +110,7 @@ export default function Home() {
                 padding: "20px",
                 minHeight: "100vh",
                 boxSizing: "border-box",
+                backgroundColor: "#f8f9fa",
             }}
         >
             {/* Card Container */}
@@ -149,7 +119,7 @@ export default function Home() {
                     backgroundColor: "#ffffff",
                     borderRadius: "16px",
                     boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1)",
-                    padding: "32px 32px 32px 32px",
+                    padding: "32px",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -160,18 +130,32 @@ export default function Home() {
                 {/* Title */}
                 <h1
                     style={{
-                        fontSize: "24px",
+                        fontSize: "28px",
                         fontWeight: "700",
                         color: "#1F1F21",
-                        margin: "0 0 32px 0",
+                        margin: "0 0 16px 0",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                         textAlign: "center",
                     }}
                 >
-                    Animated ADS Foundations 🚗💨✨
+                    Icons Animation Comparison
                 </h1>
 
-                {/* Original CSS Animations */}
+                <p
+                    style={{
+                        fontSize: "16px",
+                        color: "#6c757d",
+                        margin: "0 0 32px 0",
+                        fontFamily: "system-ui, -apple-system, sans-serif",
+                        textAlign: "center",
+                        maxWidth: "600px",
+                        lineHeight: "1.5",
+                    }}
+                >
+                    Comparing the original CSS animations with Framer Motion implementations
+                </p>
+
+                {/* Original CSS Animations Section */}
                 <div
                     style={{
                         marginBottom: "40px",
@@ -183,7 +167,7 @@ export default function Home() {
                 >
                     <h2
                         style={{
-                            fontSize: "18px",
+                            fontSize: "20px",
                             fontWeight: "600",
                             color: "#1F1F21",
                             margin: "0 0 20px 0",
@@ -199,25 +183,19 @@ export default function Home() {
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
-                            gap: "40px",
+                            gap: "24px",
                         }}
                     >
-                        <AnimationWrapper label="Colour">
-                            <ColourFoundation />
-                        </AnimationWrapper>
-                        <AnimationWrapper label="Icons">
+                        <AnimationWrapper
+                            label="CSS Implementation"
+                            description="Original implementation using CSS keyframes and stroke-dasharray with repeating animations"
+                        >
                             <IconsFoundation />
-                        </AnimationWrapper>
-                        <AnimationWrapper label="Spacing">
-                            <SpacingFoundation />
-                        </AnimationWrapper>
-                        <AnimationWrapper label="Typography">
-                            <TypographyFoundation />
                         </AnimationWrapper>
                     </div>
                 </div>
 
-                {/* Framer Motion Animations */}
+                {/* Framer Motion Animations Section */}
                 <div
                     style={{
                         marginBottom: "32px",
@@ -225,7 +203,7 @@ export default function Home() {
                 >
                     <h2
                         style={{
-                            fontSize: "18px",
+                            fontSize: "20px",
                             fontWeight: "600",
                             color: "#1F1F21",
                             margin: "0 0 20px 0",
@@ -233,26 +211,30 @@ export default function Home() {
                             textAlign: "center",
                         }}
                     >
-                        Framer Motion Versions
+                        Framer Motion Implementations
                     </h2>
 
                     <div
                         style={{
                             display: "flex",
                             justifyContent: "center",
-                            alignItems: "center",
-                            gap: "40px",
+                            alignItems: "flex-start",
+                            gap: "24px",
+                            flexWrap: "wrap",
                         }}
                     >
-                        <AnimationWrapper label="Icons Basic">
-                            <div key={`motion-basic-${animationKey}`}>
-                                <IconsMotion />
-                            </div>
+                        <AnimationWrapper
+                            label="Motion Basic"
+                            description="Motion implementation with initial animations only"
+                        >
+                            <IconsMotion />
                         </AnimationWrapper>
-                        <AnimationWrapper label="Icons Advanced">
-                            <div key={`motion-advanced-${animationKey}`}>
-                                <IconsMotionAdvanced />
-                            </div>
+
+                        <AnimationWrapper
+                            label="Motion Advanced"
+                            description="Motion implementation with repeating animations"
+                        >
+                            <IconsMotionAdvanced />
                         </AnimationWrapper>
                     </div>
                 </div>
@@ -261,8 +243,8 @@ export default function Home() {
                 <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
                     <button
                         onClick={() => {
-                            console.log("Button clicked - restarting all animations");
-                            restartAllAnimations();
+                            console.log("Button clicked - restarting CSS animations");
+                            restartAnimations();
                         }}
                         style={{
                             padding: "10px 20px",
@@ -288,11 +270,11 @@ export default function Home() {
                             e.currentTarget.style.boxShadow = "0 2px 4px rgba(24, 104, 219, 0.2)";
                         }}
                     >
-                        ↻ Replay All Animations
+                        ↻ Replay CSS Animations
                     </button>
 
                     <a
-                        href="/motion"
+                        href="/"
                         style={{
                             display: "inline-block",
                             padding: "10px 20px",
@@ -315,35 +297,58 @@ export default function Home() {
                             e.currentTarget.style.color = "#1868DB";
                         }}
                     >
-                        🎬 Motion Comparison
+                        ← Back to All Animations
                     </a>
+                </div>
 
-                    <a
-                        href="/pictorial-instructions"
+                {/* Motion Library Info */}
+                <div
+                    style={{
+                        marginTop: "32px",
+                        padding: "20px",
+                        backgroundColor: "#f8f9fa",
+                        borderRadius: "8px",
+                        border: "1px solid #e9ecef",
+                        maxWidth: "600px",
+                    }}
+                >
+                    <h3
                         style={{
-                            display: "inline-block",
-                            padding: "10px 20px",
-                            fontSize: "14px",
+                            fontSize: "18px",
                             fontWeight: "600",
-                            color: "#1868DB",
-                            backgroundColor: "transparent",
-                            border: "2px solid #1868DB",
-                            borderRadius: "6px",
-                            textDecoration: "none",
-                            transition: "all 0.2s ease",
+                            color: "#1F1F21",
+                            margin: "0 0 12px 0",
                             fontFamily: "system-ui, -apple-system, sans-serif",
                         }}
-                        onMouseOver={(e) => {
-                            e.currentTarget.style.backgroundColor = "#1868DB";
-                            e.currentTarget.style.color = "#ffffff";
-                        }}
-                        onMouseOut={(e) => {
-                            e.currentTarget.style.backgroundColor = "transparent";
-                            e.currentTarget.style.color = "#1868DB";
+                    >
+                        About Framer Motion
+                    </h3>
+                    <p
+                        style={{
+                            fontSize: "14px",
+                            color: "#6c757d",
+                            margin: "0 0 12px 0",
+                            fontFamily: "system-ui, -apple-system, sans-serif",
+                            lineHeight: "1.5",
                         }}
                     >
-                        📋 Pictorial Instructions
-                    </a>
+                        Framer Motion is a production-ready motion library for React. It provides a
+                        declarative way to create animations with features like spring physics,
+                        gesture support, and layout animations.
+                    </p>
+                    <p
+                        style={{
+                            fontSize: "14px",
+                            color: "#6c757d",
+                            margin: "0",
+                            fontFamily: "system-ui, -apple-system, sans-serif",
+                            lineHeight: "1.5",
+                        }}
+                    >
+                        <strong>Key differences:</strong> The Motion version uses declarative
+                        animations with better performance optimizations, while the CSS version uses
+                        traditional keyframe animations. Both achieve similar visual results.
+                    </p>
                 </div>
             </div>
         </main>

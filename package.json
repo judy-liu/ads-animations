@@ -15,7 +15,12 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@atlaskit/theme": "^18.0.3",
+        "@atlaskit/tokens": "^5.4.1",
+        "@emotion/cache": "^11.14.0",
+        "@emotion/react": "^11.14.0",
         "@types/react": "^19.1.6",
+        "motion": "^12.18.1",
         "next": "^15.3.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
