@@ -230,107 +230,6 @@ export default function PictorialInstructionsPage() {
                         position: "relative",
                     }}
                 >
-                    {/* Dark Mode Toggle - Top Right */}
-                    <div
-                        style={{
-                            position: "absolute",
-                            top: "16px",
-                            right: "16px",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            zIndex: 10,
-                        }}
-                    >
-                        <span
-                            style={{
-                                fontSize: "12px",
-                                fontWeight: "500",
-                                color: "var(--color-text-subtle)",
-                                fontFamily: "system-ui, -apple-system, sans-serif",
-                                textTransform: "uppercase",
-                                letterSpacing: "0.5px",
-                            }}
-                        >
-                            Theme
-                        </span>
-
-                        <button
-                            onClick={toggleDarkMode}
-                            style={{
-                                position: "relative",
-                                width: "56px",
-                                height: "32px",
-                                backgroundColor: isDarkMode
-                                    ? "#22304a" // softer dark blue for dark mode
-                                    : "#fff3b0", // warmer yellow for light mode
-                                border: "1px solid var(--color-border)",
-                                borderRadius: "16px",
-                                cursor: "pointer",
-                                transition: "all 0.2s ease",
-                                display: "flex",
-                                alignItems: "center",
-                                padding: "4px",
-                                boxShadow: "none",
-                            }}
-                        >
-                            <div
-                                style={{
-                                    width: "24px",
-                                    height: "24px",
-                                    background: isDarkMode ? "transparent" : "#ffd600",
-                                    borderRadius: "12px",
-                                    transform: isDarkMode ? "translateX(23px)" : "translateX(0px)",
-                                    transition: "transform 0.2s ease, background 0.2s ease",
-                                    boxShadow: isDarkMode ? "none" : "0 1px 3px rgba(0,0,0,0.12)",
-                                    border: "none",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
-                            >
-                                {isDarkMode ? (
-                                    // Moon SVG
-                                    <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <circle cx="12" cy="12" r="12" fill="#4c9aff" />
-                                        <path
-                                            d="M18.75 15.75C17.25 17.25 14.25 18 12 15C9.75 12 10.5 9 12 7.5C9 7.5 6 10.5 6 13.5C6 16.5 9 19.5 12 19.5C15 19.5 18 16.5 18.75 15.75Z"
-                                            fill="#fff"
-                                        />
-                                    </svg>
-                                ) : (
-                                    // Sun SVG
-                                    <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <circle cx="12" cy="12" r="12" fill="#ffd600" />
-                                        <g stroke="#fff" strokeWidth="1.8">
-                                            <line x1="12" y1="3" x2="12" y2="6.3" />
-                                            <line x1="12" y1="17.7" x2="12" y2="21" />
-                                            <line x1="3" y1="12" x2="6.3" y2="12" />
-                                            <line x1="17.7" y1="12" x2="21" y2="12" />
-                                            <line x1="6.3" y1="6.3" x2="8.4" y2="8.4" />
-                                            <line x1="15.6" y1="15.6" x2="17.7" y2="17.7" />
-                                            <line x1="6.3" y1="17.7" x2="8.4" y2="15.6" />
-                                            <line x1="15.6" y1="8.4" x2="17.7" y2="6.3" />
-                                        </g>
-                                        <circle cx="12" cy="12" r="3.3" fill="#fff" />
-                                    </svg>
-                                )}
-                            </div>
-                        </button>
-                    </div>
-
                     {/* Header */}
                     <div style={{ textAlign: "center", marginBottom: "40px" }}>
                         <h1
@@ -356,6 +255,108 @@ export default function PictorialInstructionsPage() {
                         >
                             Fully coded animations with light/dark mode support ☀️🌙
                         </p>
+
+                        {/* Theme Toggle */}
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                gap: "8px",
+                            }}
+                        >
+                            <span
+                                style={{
+                                    fontSize: "12px",
+                                    fontWeight: "500",
+                                    color: "var(--color-text-subtle)",
+                                    fontFamily: "system-ui, -apple-system, sans-serif",
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.5px",
+                                }}
+                            >
+                                Theme
+                            </span>
+
+                            <button
+                                onClick={toggleDarkMode}
+                                style={{
+                                    position: "relative",
+                                    width: "56px",
+                                    height: "32px",
+                                    backgroundColor: isDarkMode
+                                        ? "#22304a" // softer dark blue for dark mode
+                                        : "#fff3b0", // warmer yellow for light mode
+                                    border: "1px solid var(--color-border)",
+                                    borderRadius: "16px",
+                                    cursor: "pointer",
+                                    transition: "all 0.2s ease",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    padding: "4px",
+                                    boxShadow: "none",
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        width: "24px",
+                                        height: "24px",
+                                        background: isDarkMode ? "transparent" : "#ffd600",
+                                        borderRadius: "12px",
+                                        transform: isDarkMode
+                                            ? "translateX(23px)"
+                                            : "translateX(0px)",
+                                        transition: "transform 0.2s ease, background 0.2s ease",
+                                        boxShadow: isDarkMode
+                                            ? "none"
+                                            : "0 1px 3px rgba(0,0,0,0.12)",
+                                        border: "none",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    {isDarkMode ? (
+                                        // Moon SVG
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <circle cx="12" cy="12" r="12" fill="#4c9aff" />
+                                            <path
+                                                d="M18.75 15.75C17.25 17.25 14.25 18 12 15C9.75 12 10.5 9 12 7.5C9 7.5 6 10.5 6 13.5C6 16.5 9 19.5 12 19.5C15 19.5 18 16.5 18.75 15.75Z"
+                                                fill="#fff"
+                                            />
+                                        </svg>
+                                    ) : (
+                                        // Sun SVG
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <circle cx="12" cy="12" r="12" fill="#ffd600" />
+                                            <g stroke="#fff" strokeWidth="1.8">
+                                                <line x1="12" y1="3" x2="12" y2="6.3" />
+                                                <line x1="12" y1="17.7" x2="12" y2="21" />
+                                                <line x1="3" y1="12" x2="6.3" y2="12" />
+                                                <line x1="17.7" y1="12" x2="21" y2="12" />
+                                                <line x1="6.3" y1="6.3" x2="8.4" y2="8.4" />
+                                                <line x1="15.6" y1="15.6" x2="17.7" y2="17.7" />
+                                                <line x1="6.3" y1="17.7" x2="8.4" y2="15.6" />
+                                                <line x1="15.6" y1="8.4" x2="17.7" y2="6.3" />
+                                            </g>
+                                            <circle cx="12" cy="12" r="3.3" fill="#fff" />
+                                        </svg>
+                                    )}
+                                </div>
+                            </button>
+                        </div>
                     </div>
 
                     {/* Animations Grid */}
