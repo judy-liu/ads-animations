@@ -950,6 +950,7 @@ export default function ModalInteraction({ isDarkMode }: { isDarkMode?: boolean 
                 width: "468px",
                 height: "220px",
                 backgroundColor: getThemedColor("#f4f5f7", "#1d2125", themeMode),
+                border: "1px solid var(--color-border)",
             }}
             animate={{ opacity: globalOpacity }}
             transition={{ duration: 0.8, ease: "easeInOut" }}

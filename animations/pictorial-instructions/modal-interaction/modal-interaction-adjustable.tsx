@@ -2,11 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import svgPaths from "./svg-paths";
 
-// Helper function to get themed colors based on theme mode
-function getThemedColor(lightColor: string, darkColor: string, themeMode?: string) {
-    return themeMode === "dark" ? darkColor : lightColor;
-}
-
 // Helper function to interpolate between smooth and bouncy easings
 function getBouncyEasing(bounciness: number): [number, number, number, number] {
     // Smooth easing: [0.25, 0.1, 0.25, 1] (standard easeInOut)
@@ -816,7 +811,28 @@ function WhiteModal({
     );
 }
 
-export default function ModalInteractionAdjustable({ isDarkMode }: { isDarkMode?: boolean }) {
+export function getThemedColor(lightColor: string, darkColor: string, themeMode?: string) {
+    if (themeMode === "dark") return darkColor;
+    return lightColor;
+}
+
+interface ModalInteractionAdjustableProps {
+    isDarkMode?: boolean;
+    bounciness: number;
+    setBounciness: (n: number) => void;
+    playKey: number;
+    setIsPlaying: (b: boolean) => void;
+    onAnimationEnd: () => void;
+}
+
+export default function ModalInteractionAdjustable({
+    isDarkMode,
+    bounciness,
+    setBounciness,
+    playKey,
+    setIsPlaying,
+    onAnimationEnd,
+}: ModalInteractionAdjustableProps) {
     const themeMode = isDarkMode ? "dark" : "light";
     const [animationState, setAnimationState] = useState(0);
     const [cursorPosition, setCursorPosition] = useState({ x: 94.16, y: 31.18 });
@@ -830,9 +846,6 @@ export default function ModalInteractionAdjustable({ isDarkMode }: { isDarkMode?
     );
     const [showLoading, setShowLoading] = useState(false);
     const [globalOpacity, setGlobalOpacity] = useState(1);
-    const [bounciness, setBounciness] = useState(50); // Default to 50% bounciness
-    const [isReplaying, setIsReplaying] = useState(false);
-    const [isPlaying, setIsPlaying] = useState(false);
     const sequenceRef = useRef<NodeJS.Timeout | null>(null);
 
     const PURPLE_RECT_DIMENSIONS = {
@@ -867,189 +880,78 @@ export default function ModalInteractionAdjustable({ isDarkMode }: { isDarkMode?
         setCursorPosition({ x: 94.16, y: 31.18 });
     };
 
-    // Function to handle replay
-    const handleReplay = async () => {
-        if (isReplaying || isPlaying) return; // Prevent multiple replays or playing animation
-
-        setIsReplaying(true);
-
-        // Reset all animation states
-        resetAnimationState();
-
-        // Increment animation state to trigger restart
-        setAnimationState((prev) => prev + 1);
-
-        setIsReplaying(false);
-    };
-
     useEffect(() => {
-        // Clear any existing timeout
+        let cancelled = false;
+        setIsPlaying(true);
         if (sequenceRef.current) {
             clearTimeout(sequenceRef.current);
         }
 
         const sequence = async () => {
-            setIsPlaying(true);
-
             // Initial state - cursor at blue rectangle corner
             await new Promise((resolve) => setTimeout(resolve, 1000));
+            if (cancelled) return;
 
             // Phase 1: Start resizing - show selection and begin resizing simultaneously
             setSelectionPhase("resizing");
             setCursorPosition(endCursorPosition);
             await new Promise((resolve) => setTimeout(resolve, 1200));
+            if (cancelled) return;
 
             // Phase 2: Snap to blue
             setSelectionPhase("blue-snap");
             await new Promise((resolve) => setTimeout(resolve, 300));
+            if (cancelled) return;
 
             // Phase 3: INSTANT snap to purple
             setSelectionPhase("purple-snap");
             await new Promise((resolve) => setTimeout(resolve, 800));
+            if (cancelled) return;
 
             // Phase 4: Move everything together
             setSelectionPhase("purple-moved");
             setModalShouldMove(true);
             setWhiteModalVisible(true);
             await new Promise((resolve) => setTimeout(resolve, 1200));
+            if (cancelled) return;
 
             // Move cursor to blue button
             setCursorPosition({ x: 105.79, y: 147 });
             await new Promise((resolve) => setTimeout(resolve, 800));
+            if (cancelled) return;
 
             // Button interactions
             setButtonState("hover");
             await new Promise((resolve) => setTimeout(resolve, 400));
+            if (cancelled) return;
 
             setButtonState("pressed");
             await new Promise((resolve) => setTimeout(resolve, 200));
+            if (cancelled) return;
 
             setShowLoading(true);
             await new Promise((resolve) => setTimeout(resolve, 1500));
+            if (cancelled) return;
 
             // Fade out and reset
             setGlobalOpacity(0);
             await new Promise((resolve) => setTimeout(resolve, 800));
-
-            // Reset everything
-            resetAnimationState();
-            setGlobalOpacity(1);
-            await new Promise((resolve) => setTimeout(resolve, 800));
+            if (cancelled) return;
 
             setIsPlaying(false);
+            onAnimationEnd();
         };
 
         sequence();
-    }, [animationState]);
+        return () => {
+            cancelled = true;
+        };
+    }, [playKey]);
 
     return (
         <div
             style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}
         >
-            {/* Bounciness Slider */}
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "8px",
-                    padding: "16px",
-                    backgroundColor: getThemedColor("#ffffff", "#22272b", themeMode),
-                    borderRadius: "8px",
-                    border: `1px solid ${getThemedColor("#dfe1e6", "#3c4c5c", themeMode)}`,
-                    minWidth: "300px",
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "12px",
-                        width: "100%",
-                    }}
-                >
-                    <label
-                        style={{
-                            fontSize: "14px",
-                            fontWeight: "600",
-                            color: getThemedColor("#172b4d", "#e6fcff", themeMode),
-                            fontFamily: "system-ui, -apple-system, sans-serif",
-                            flex: "1",
-                        }}
-                    >
-                        Bounciness: {bounciness}%
-                    </label>
-                    <button
-                        onClick={handleReplay}
-                        disabled={isReplaying || isPlaying}
-                        style={{
-                            padding: "8px 16px",
-                            fontSize: "14px",
-                            fontWeight: "500",
-                            color: getThemedColor("#ffffff", "#1d2125", themeMode),
-                            backgroundColor:
-                                isReplaying || isPlaying
-                                    ? getThemedColor("#6b778c", "#9fadbc", themeMode)
-                                    : getThemedColor("#0052cc", "#4c9aff", themeMode),
-                            border: "none",
-                            borderRadius: "6px",
-                            cursor: isReplaying || isPlaying ? "not-allowed" : "pointer",
-                            fontFamily: "system-ui, -apple-system, sans-serif",
-                            transition: "all 0.2s ease",
-                            opacity: isReplaying || isPlaying ? 0.6 : 1,
-                        }}
-                        onMouseEnter={(e) => {
-                            if (!isReplaying && !isPlaying) {
-                                e.currentTarget.style.backgroundColor = getThemedColor(
-                                    "#0747a6",
-                                    "#2c3e5d",
-                                    themeMode
-                                );
-                            }
-                        }}
-                        onMouseLeave={(e) => {
-                            if (!isReplaying && !isPlaying) {
-                                e.currentTarget.style.backgroundColor = getThemedColor(
-                                    "#0052cc",
-                                    "#4c9aff",
-                                    themeMode
-                                );
-                            }
-                        }}
-                    >
-                        {isReplaying ? "Playing..." : isPlaying ? "Playing..." : "Play"}
-                    </button>
-                </div>
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={bounciness}
-                    onChange={(e) => setBounciness(Number(e.target.value))}
-                    style={{
-                        width: "100%",
-                        height: "6px",
-                        borderRadius: "3px",
-                        background: getThemedColor("#dfe1e6", "#3c4c5c", themeMode),
-                        outline: "none",
-                        cursor: "pointer",
-                    }}
-                />
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        width: "100%",
-                        fontSize: "12px",
-                        color: getThemedColor("#6b778c", "#9fadbc", themeMode),
-                        fontFamily: "system-ui, -apple-system, sans-serif",
-                    }}
-                >
-                    <span>Smooth</span>
-                    <span>Bouncy</span>
-                </div>
-            </div>
-
             {/* Animation Container */}
             <motion.div
                 style={{
@@ -1058,6 +960,7 @@ export default function ModalInteractionAdjustable({ isDarkMode }: { isDarkMode?
                     width: "468px",
                     height: "220px",
                     backgroundColor: getThemedColor("#f4f5f7", "#1d2125", themeMode),
+                    border: "1px solid var(--color-border)",
                 }}
                 animate={{ opacity: globalOpacity }}
                 transition={{ duration: 0.8, ease: getBouncyEasing(bounciness) }}

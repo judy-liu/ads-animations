@@ -4,11 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ModalInteraction from "../../animations/pictorial-instructions/modal-interaction/modal-interaction";
 import ModalInteractionBouncy from "../../animations/pictorial-instructions/modal-interaction/modal-interaction-bouncy";
-import ModalInteractionAdjustable from "../../animations/pictorial-instructions/modal-interaction/modal-interaction-adjustable";
+import ModalInteractionAdjustable, {
+    getThemedColor,
+} from "../../animations/pictorial-instructions/modal-interaction/modal-interaction-adjustable";
+import BouncinessSliderCard from "../../animations/pictorial-instructions/modal-interaction/BouncinessSliderCard";
 
 export default function PictorialInstructionsPage() {
     const [animationKey, setAnimationKey] = useState(0);
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [playKey, setPlayKey] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [bounciness, setBounciness] = useState(50);
 
     // Detect system dark mode preference and set up theme
     useEffect(() => {
@@ -20,6 +26,11 @@ export default function PictorialInstructionsPage() {
         if (prefersDark) {
             document.body.classList.add("dark");
         }
+    }, []);
+
+    // Play animation once on mount
+    useEffect(() => {
+        setPlayKey((k) => k + 1);
     }, []);
 
     // Handle dark mode toggle
@@ -74,6 +85,16 @@ export default function PictorialInstructionsPage() {
         });
     };
 
+    const handlePlay = () => {
+        if (!isPlaying) {
+            setPlayKey((k) => k + 1);
+        }
+    };
+
+    const handleAnimationEnd = () => {
+        setIsPlaying(false);
+    };
+
     const AnimationWrapper = ({
         children,
         label,
@@ -94,13 +115,10 @@ export default function PictorialInstructionsPage() {
                 marginBottom: "40px",
             }}
         >
-            {/* Animation container */}
-            <div style={{ position: "relative" }}>{children}</div>
-
             {/* Label and description */}
             <div
                 style={{
-                    marginTop: "16px",
+                    marginBottom: "16px",
                     textAlign: "center",
                     maxWidth: "300px",
                 }}
@@ -130,14 +148,29 @@ export default function PictorialInstructionsPage() {
                     </p>
                 )}
             </div>
+            {/* Animation container */}
+            <div style={{ position: "relative" }}>{children}</div>
         </div>
     );
 
     return (
         <>
             <style jsx global>{`
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: #ffffff;
+                }
+
                 :root {
-                    --color-background-neutral-subtle: #f4f5f7;
+                    --color-background-neutral-subtle: #ffffff;
                     --color-background-input: #ffffff;
                     --color-text: #172b4d;
                     --color-text-subtle: #6b778c;
@@ -149,6 +182,8 @@ export default function PictorialInstructionsPage() {
                     --color-discovery-bold: #af59e1;
                     --color-brand-boldest: #0052cc;
                     --color-link-alpha: rgba(0, 82, 204, 0.15);
+                    --color-background-disabled: #f4f5f7;
+                    --color-text-disabled: #a5adba;
                 }
 
                 body.dark {
@@ -164,6 +199,8 @@ export default function PictorialInstructionsPage() {
                     --color-discovery-bold: #9b8afb;
                     --color-brand-boldest: #4c9aff;
                     --color-link-alpha: rgba(76, 154, 255, 0.15);
+                    --color-background-disabled: #313740;
+                    --color-text-disabled: #738496;
                 }
             `}</style>
             <main
@@ -174,7 +211,7 @@ export default function PictorialInstructionsPage() {
                     padding: "20px",
                     minHeight: "100vh",
                     boxSizing: "border-box",
-                    backgroundColor: "var(--color-background-neutral-subtle)",
+                    backgroundColor: "#ffffff",
                 }}
             >
                 {/* Card Container */}
@@ -190,78 +227,112 @@ export default function PictorialInstructionsPage() {
                         maxWidth: "1200px",
                         width: "100%",
                         border: "1px solid var(--color-border)",
+                        position: "relative",
                     }}
                 >
-                    {/* Header */}
-                    <div style={{ textAlign: "center", marginBottom: "40px" }}>
-                        <div
+                    {/* Dark Mode Toggle - Top Right */}
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: "16px",
+                            right: "16px",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            zIndex: 10,
+                        }}
+                    >
+                        <span
                             style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                marginBottom: "24px",
+                                fontSize: "12px",
+                                fontWeight: "500",
+                                color: "var(--color-text-subtle)",
+                                fontFamily: "system-ui, -apple-system, sans-serif",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                             }}
                         >
-                            <Link
-                                href="/"
-                                style={{
-                                    display: "inline-flex",
-                                    alignItems: "center",
-                                    gap: "8px",
-                                    padding: "10px 20px",
-                                    fontSize: "14px",
-                                    fontWeight: "600",
-                                    color: "var(--color-link)",
-                                    backgroundColor: "transparent",
-                                    border: "2px solid var(--color-link)",
-                                    borderRadius: "6px",
-                                    textDecoration: "none",
-                                    transition: "all 0.2s ease",
-                                    fontFamily: "system-ui, -apple-system, sans-serif",
-                                }}
-                                onMouseOver={(e) => {
-                                    e.currentTarget.style.backgroundColor = "var(--color-link)";
-                                    e.currentTarget.style.color = "var(--color-text-inverse)";
-                                }}
-                                onMouseOut={(e) => {
-                                    e.currentTarget.style.backgroundColor = "transparent";
-                                    e.currentTarget.style.color = "var(--color-link)";
-                                }}
-                            >
-                                ← Back to ADS Foundations
-                            </Link>
+                            Theme
+                        </span>
 
-                            {/* Dark Mode Toggle */}
-                            <button
-                                onClick={toggleDarkMode}
+                        <button
+                            onClick={toggleDarkMode}
+                            style={{
+                                position: "relative",
+                                width: "56px",
+                                height: "32px",
+                                backgroundColor: isDarkMode
+                                    ? "#22304a" // softer dark blue for dark mode
+                                    : "#fff3b0", // warmer yellow for light mode
+                                border: "1px solid var(--color-border)",
+                                borderRadius: "16px",
+                                cursor: "pointer",
+                                transition: "all 0.2s ease",
+                                display: "flex",
+                                alignItems: "center",
+                                padding: "4px",
+                                boxShadow: "none",
+                            }}
+                        >
+                            <div
                                 style={{
+                                    width: "24px",
+                                    height: "24px",
+                                    background: isDarkMode ? "transparent" : "#ffd600",
+                                    borderRadius: "12px",
+                                    transform: isDarkMode ? "translateX(23px)" : "translateX(0px)",
+                                    transition: "transform 0.2s ease, background 0.2s ease",
+                                    boxShadow: isDarkMode ? "none" : "0 1px 3px rgba(0,0,0,0.12)",
+                                    border: "none",
                                     display: "flex",
                                     alignItems: "center",
-                                    gap: "8px",
-                                    padding: "10px 16px",
-                                    fontSize: "14px",
-                                    fontWeight: "500",
-                                    color: "var(--color-text)",
-                                    backgroundColor: "var(--color-background-neutral-subtle)",
-                                    border: "1px solid var(--color-border)",
-                                    borderRadius: "6px",
-                                    cursor: "pointer",
-                                    fontFamily: "system-ui, -apple-system, sans-serif",
-                                    transition: "all 0.2s ease",
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor =
-                                        "var(--color-background-neutral-subtle-hovered)";
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor =
-                                        "var(--color-background-neutral-subtle)";
+                                    justifyContent: "center",
                                 }}
                             >
-                                {isDarkMode ? "🌙" : "☀️"} {isDarkMode ? "Light Mode" : "Dark Mode"}
-                            </button>
-                        </div>
+                                {isDarkMode ? (
+                                    // Moon SVG
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <circle cx="12" cy="12" r="12" fill="#4c9aff" />
+                                        <path
+                                            d="M18.75 15.75C17.25 17.25 14.25 18 12 15C9.75 12 10.5 9 12 7.5C9 7.5 6 10.5 6 13.5C6 16.5 9 19.5 12 19.5C15 19.5 18 16.5 18.75 15.75Z"
+                                            fill="#fff"
+                                        />
+                                    </svg>
+                                ) : (
+                                    // Sun SVG
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <circle cx="12" cy="12" r="12" fill="#ffd600" />
+                                        <g stroke="#fff" strokeWidth="1.8">
+                                            <line x1="12" y1="3" x2="12" y2="6.3" />
+                                            <line x1="12" y1="17.7" x2="12" y2="21" />
+                                            <line x1="3" y1="12" x2="6.3" y2="12" />
+                                            <line x1="17.7" y1="12" x2="21" y2="12" />
+                                            <line x1="6.3" y1="6.3" x2="8.4" y2="8.4" />
+                                            <line x1="15.6" y1="15.6" x2="17.7" y2="17.7" />
+                                            <line x1="6.3" y1="17.7" x2="8.4" y2="15.6" />
+                                            <line x1="15.6" y1="8.4" x2="17.7" y2="6.3" />
+                                        </g>
+                                        <circle cx="12" cy="12" r="3.3" fill="#fff" />
+                                    </svg>
+                                )}
+                            </div>
+                        </button>
+                    </div>
 
+                    {/* Header */}
+                    <div style={{ textAlign: "center", marginBottom: "40px" }}>
                         <h1
                             style={{
                                 fontSize: "28px",
@@ -271,7 +342,7 @@ export default function PictorialInstructionsPage() {
                                 fontFamily: "system-ui, -apple-system, sans-serif",
                             }}
                         >
-                            Pictorial Instructions
+                            Animated Pictorials
                         </h1>
 
                         <p
@@ -283,36 +354,8 @@ export default function PictorialInstructionsPage() {
                                 maxWidth: "600px",
                             }}
                         >
-                            Longer animation sequences featuring UI components styled as
-                            low-fidelity ADS components. These animations demonstrate complex
-                            interactions and workflows.
+                            Fully coded animations with light/dark mode support ☀️🌙
                         </p>
-
-                        <button
-                            onClick={restartAllAnimations}
-                            style={{
-                                backgroundColor: "var(--color-background-input)",
-                                color: "var(--color-text)",
-                                border: "1px solid var(--color-border)",
-                                borderRadius: "8px",
-                                padding: "12px 24px",
-                                fontSize: "14px",
-                                fontWeight: "500",
-                                cursor: "pointer",
-                                fontFamily: "system-ui, -apple-system, sans-serif",
-                                transition: "all 0.2s ease",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor =
-                                    "var(--color-background-neutral-subtle)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor =
-                                    "var(--color-background-input)";
-                            }}
-                        >
-                            Restart All Animations
-                        </button>
                     </div>
 
                     {/* Animations Grid */}
@@ -330,14 +373,14 @@ export default function PictorialInstructionsPage() {
                             style={{
                                 display: "grid",
                                 gridTemplateColumns: "repeat(2, 1fr)",
-                                gap: "40px",
+                                gap: "20px",
                                 width: "100%",
                             }}
                         >
                             {/* Modal Interaction Animation - Original */}
                             <AnimationWrapper
                                 label="Modal Interaction (Original)"
-                                description="Smooth, professional animation with standard easings"
+                                description="Smooth animation with standard easings"
                             >
                                 <div key={`modal-interaction-original-${animationKey}`}>
                                     <ModalInteraction isDarkMode={isDarkMode} />
@@ -347,7 +390,7 @@ export default function PictorialInstructionsPage() {
                             {/* Modal Interaction Animation - Bouncy */}
                             <AnimationWrapper
                                 label="Modal Interaction (Bouncy)"
-                                description="Playful, bouncy animation with elastic easings"
+                                description="Playful animation with elastic easings"
                             >
                                 <div key={`modal-interaction-bouncy-${animationKey}`}>
                                     <ModalInteractionBouncy isDarkMode={isDarkMode} />
@@ -359,12 +402,37 @@ export default function PictorialInstructionsPage() {
                         <div style={{ width: "100%" }}>
                             <AnimationWrapper
                                 label="Modal Interaction (Adjustable)"
-                                description="Interactive version with adjustable bounciness slider"
+                                description="Interactive version with bounciness slider"
                             >
                                 <div key={`modal-interaction-adjustable-${animationKey}`}>
-                                    <ModalInteractionAdjustable isDarkMode={isDarkMode} />
+                                    <ModalInteractionAdjustable
+                                        isDarkMode={isDarkMode}
+                                        bounciness={bounciness}
+                                        setBounciness={setBounciness}
+                                        playKey={playKey}
+                                        setIsPlaying={setIsPlaying}
+                                        onAnimationEnd={handleAnimationEnd}
+                                    />
                                 </div>
                             </AnimationWrapper>
+                            {/* Bounciness slider card is now rendered below the animation */}
+                            <div
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    width: "100%",
+                                    marginTop: "16px",
+                                }}
+                            >
+                                <BouncinessSliderCard
+                                    bounciness={bounciness}
+                                    setBounciness={setBounciness}
+                                    isPlaying={isPlaying}
+                                    onPlay={handlePlay}
+                                    themeMode={isDarkMode ? "dark" : "light"}
+                                    getThemedColor={getThemedColor}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
