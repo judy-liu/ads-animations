@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ModalInteraction from "../../animations/pictorial-instructions/modal-interaction/modal-interaction";
+import ModalInteractionBouncy from "../../animations/pictorial-instructions/modal-interaction/modal-interaction-bouncy";
+import ModalInteractionAdjustable from "../../animations/pictorial-instructions/modal-interaction/modal-interaction-adjustable";
 
 export default function PictorialInstructionsPage() {
     const [animationKey, setAnimationKey] = useState(0);
@@ -316,22 +318,54 @@ export default function PictorialInstructionsPage() {
                     {/* Animations Grid */}
                     <div
                         style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                            gap: "40px",
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "60px",
                             width: "100%",
-                            maxWidth: "1000px",
+                            maxWidth: "1200px",
                         }}
                     >
-                        {/* Modal Interaction Animation */}
-                        <AnimationWrapper
-                            label="Modal Interaction"
-                            description="Complex modal interaction sequence with cursor movement, selection frames, and button states"
+                        {/* First Row - Original and Bouncy */}
+                        <div
+                            style={{
+                                display: "grid",
+                                gridTemplateColumns: "repeat(2, 1fr)",
+                                gap: "40px",
+                                width: "100%",
+                            }}
                         >
-                            <div key={`modal-interaction-${animationKey}`}>
-                                <ModalInteraction isDarkMode={isDarkMode} />
-                            </div>
-                        </AnimationWrapper>
+                            {/* Modal Interaction Animation - Original */}
+                            <AnimationWrapper
+                                label="Modal Interaction (Original)"
+                                description="Smooth, professional animation with standard easings"
+                            >
+                                <div key={`modal-interaction-original-${animationKey}`}>
+                                    <ModalInteraction isDarkMode={isDarkMode} />
+                                </div>
+                            </AnimationWrapper>
+
+                            {/* Modal Interaction Animation - Bouncy */}
+                            <AnimationWrapper
+                                label="Modal Interaction (Bouncy)"
+                                description="Playful, bouncy animation with elastic easings"
+                            >
+                                <div key={`modal-interaction-bouncy-${animationKey}`}>
+                                    <ModalInteractionBouncy isDarkMode={isDarkMode} />
+                                </div>
+                            </AnimationWrapper>
+                        </div>
+
+                        {/* Second Row - Adjustable */}
+                        <div style={{ width: "100%" }}>
+                            <AnimationWrapper
+                                label="Modal Interaction (Adjustable)"
+                                description="Interactive version with adjustable bounciness slider"
+                            >
+                                <div key={`modal-interaction-adjustable-${animationKey}`}>
+                                    <ModalInteractionAdjustable isDarkMode={isDarkMode} />
+                                </div>
+                            </AnimationWrapper>
+                        </div>
                     </div>
                 </div>
             </main>
